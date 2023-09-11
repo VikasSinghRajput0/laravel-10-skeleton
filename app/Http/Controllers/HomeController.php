@@ -25,6 +25,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Show the Cargo dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function dashboard()
     {
         return view('site.index');

@@ -14,7 +14,6 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-
         $users = [
             [
                 'id' => '1',
@@ -85,9 +84,7 @@ class UserTableSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]
         ];
-
         foreach ($users as $user) {
-
             User::updateOrCreate(['id' => $user['id']], $user);
         }
     }
