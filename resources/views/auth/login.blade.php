@@ -7,6 +7,7 @@
 	<meta charset="utf-8" />
 
 	<link rel="shortcut icon" href="/holiscope-favicon.png" />
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!--begin::Fonts(mandatory for all pages)-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 	<!--end::Fonts-->
@@ -156,9 +157,120 @@
 	<script src="assets/js/scripts.bundle.js"></script>
 	<!--end::Global Javascript Bundle-->
 	<!--begin::Custom Javascript(used for this page only)-->
-	<script src="assets/js/custom/authentication/sign-in/general.js"></script>
+	{{-- <script src="assets/js/custom/authentication/sign-in/general.js"></script> --}}
 	<!--end::Custom Javascript-->
 	<!--end::Javascript-->
+	<script>
+		  const form = document.getElementById('kt_sign_in_form');
+        console.log(form);
+        var validator = FormValidation.formValidation(
+            form,
+            {
+                fields: {
+                    'email': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Email field is required'
+                            }
+                        }
+                    },
+                    'password': {
+                        validators: {
+                            notEmpty: {
+                                message: 'Password field is required'
+                            }
+                        }
+                    },
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    bootstrap: new FormValidation.plugins.Bootstrap5({
+                        rowSelector: '.fv-row',
+                        eleInvalidClass: '',
+                        eleValidClass: ''
+                    })
+                }
+            }
+        );
+
+        const submitButton = document.getElementById('kt_sign_in_submit');
+        submitButton.addEventListener('click', function (e) {
+            // Prevent default button action
+            e.preventDefault();
+
+            // Validate form before submit
+            if (validator) {
+                validator.validate().then(function (status) {
+
+                    if (status == 'Valid') {
+                        // Show loading indication
+                        submitButton.setAttribute('data-kt-indicator', 'on');
+
+                        // Disable button to avoid multiple clicks
+                        submitButton.disabled = true;
+
+                        // Make an AJAX request to validate the user on the backend
+                        const email = form.querySelector('[name="email"]').value;
+                        const password = form.querySelector('[name="password"]').value;
+
+                        // Modify this URL to your backend validation endpoint
+                        const backendValidationURL = '/check-user-detail';
+
+                         const csrfToken = $('meta[name="csrf-token"]').attr('content');
+
+						 
+						const requestData = {
+							email: email,
+							password: password,
+							_token: csrfToken,
+						};
+						$.ajax({
+							type: 'POST',
+							url: '/check-user-detail',
+							data: requestData, 
+							success: function(data) {
+								if (data.isValid) {
+									submitButton.removeAttribute('data-kt-indicator');
+									submitButton.disabled = false;
+                                Swal.fire({
+                                    text: "User Logged In SuccessFully",
+                                    icon: "success",
+                                    buttonsStyling: true,
+                                    confirmButtonText: "Ok, got it!",
+                                    customClass: {
+                                        confirmButton: "btn btn-primary"
+                                    }
+                                });
+                                form.submit();
+									
+								} else {
+									submitButton.removeAttribute('data-kt-indicator');
+
+                                	submitButton.disabled = false;
+
+									// Show error message
+									Swal.fire({
+										text: "User record does not exist!",
+										icon: "error",
+										buttonsStyling: true,
+										confirmButtonText: "Ok, got it!",
+										customClass: {
+											confirmButton: "btn btn-danger"
+										}
+									});
+									}
+							},
+							
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    }
+                });
+            }
+        });
+
+	</script>
 </body>
 <!--end::Body-->
 
