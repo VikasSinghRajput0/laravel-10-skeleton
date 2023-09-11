@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('role', 50)->nullable();
             $table->string('created_by', 50)->nullable();
-            $table->integer('active')->default('1');
+            $table->integer('active')->default(1);
             $table->timestamps();
         });
     }
