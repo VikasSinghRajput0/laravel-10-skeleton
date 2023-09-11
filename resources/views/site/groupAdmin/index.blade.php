@@ -3,7 +3,7 @@
 @section('content')
 <div id="kt_content_container" class="container-xxl">
     <!--begin::Row-->
-    <h1>MasterAdmin</h1>
+    <h1>groupAdmin</h1>
     <div class="row g-5 gx-xl-10 mb-5 mb-xl-10">
         <!--begin::Col-->
         <div class="col-md-6 col-lg-6 col-xl-6 col-xxl-3 mb-md-5 mb-xl-10">
