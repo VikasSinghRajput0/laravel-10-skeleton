@@ -8,7 +8,8 @@
     <title>@yield('title')</title>
     <meta charset="utf-8" />
 
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="assets/media/icons/carsonFavicon.png" />
+
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
