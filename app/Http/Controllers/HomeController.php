@@ -23,18 +23,26 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role_id == 1) {
-            return redirect()->route('masterAdmin.dashboard');
-        } else if (Auth::user()->role_id == 2) {
-            return redirect()->route('groupAdmin.dashboard');
-        } else if (Auth::user()->role_id == 3) {
-            return redirect()->route('siteAdmin.dashboard');
+
+        if (Auth::user()->active == 1) {
+            if (Auth::user()->role_id == 1) {
+                return redirect()->route('masterAdmin.dashboard');
+            } else if (Auth::user()->role_id == 2) {
+                return redirect()->route('groupAdmin.dashboard');
+            } else if (Auth::user()->role_id == 3) {
+                return redirect()->route('siteAdmin.dashboard');
+            } else {
+                // return redirect()->to('logout')->with('error', "User Suspended, cant login");
+                return redirect('302');
+                return redirect()->to('dashboard/index');
+            }
+            // else {
+            //     return redirect()->to('dashboard/index');
+            // }
+            return redirect()->to('logout')->with('error', "User Suspended, cant login");
         } else {
             return redirect('302');
+            return redirect()->to('logout')->with('error', "User Suspended, cant login");
         }
-        // else {
-        //     return redirect()->to('dashboard/index');
-        // }
-        return redirect()->to('logout')->with('error', "User Suspended, cant login");
     }
 }

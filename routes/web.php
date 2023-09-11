@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\GroupAdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterAdminController;
@@ -28,5 +28,5 @@ Route::get('/group-admin', [GroupAdminController::class, 'index'])->name('groupA
 Route::get('/site-admin', [SiteAdminController::class, 'index'])->name('siteAdmin.dashboard')->middleware('siteadmin');
 
 Auth::routes();
-
+Route::get('logout', [LoginController::class, 'logout']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

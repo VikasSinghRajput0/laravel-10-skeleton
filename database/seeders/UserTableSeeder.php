@@ -63,7 +63,7 @@ class UserTableSeeder extends Seeder
 
                 'id' => '5',
                 'name' => 'FinanceManager',
-                'email' => 'finance@gamil.com',
+                'email' => 'finance@gmail.com',
                 'password' => 'secret',
                 'role_id' => 5,
                 'phone_number' => '9876543210',
@@ -75,7 +75,7 @@ class UserTableSeeder extends Seeder
 
                 'id' => '6',
                 'name' => 'Customer',
-                'email' => 'customer@gamil.com',
+                'email' => 'customer@gmail.com',
                 'password' => 'secret',
                 'role_id' => 6,
                 'phone_number' => '9876543210',

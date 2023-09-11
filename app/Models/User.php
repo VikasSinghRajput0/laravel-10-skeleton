@@ -51,4 +51,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    public function userRole()
+    {
+        return $this->belongsTo('App\Models\Role', 'role_id', 'id');
+    }
 }

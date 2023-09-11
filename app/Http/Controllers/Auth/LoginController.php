@@ -47,28 +47,9 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
+
         if (Auth::attempt($credentials)) {
-            $user_role = Auth::user()->role_id;
-            switch ($user_role) {
-                case 1:
-                    return redirect()->route('masterAdmin.dashboard');
-                    break;
-                case 2:
-                    return redirect()->route('groupAdmin.dashboard');
-                    break;
-                case 3:
-                    return redirect()->route('siteAdmin.dashboard');
-                    break;
-                case 4:
-                    return redirect('/staff');
-                    break;
-                case 5:
-                    return redirect('/client');
-                    break;
-                default:
-                    Auth::logout();
-                    return redirect('/login')->with('error', 'oops something went wrong');
-            }
+            return redirect()->intended('/home');
         } else {
             return redirect('login')->with('error', 'The credentials do not match our records');
         }
