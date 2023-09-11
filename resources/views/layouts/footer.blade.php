@@ -1,8 +1,8 @@
 <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
     <!--begin::Copyright-->
     <div class="text-dark order-2 order-md-1">
-        <span class="text-muted fw-semibold me-1">2023&copy;</span>
-        <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
+        <span class="text-muted fw-semibold me-1"><?= date('Y') ?>&copy;</span>
+        <a href="https://coderootz.com" target="_blank" class="text-gray-800 text-hover-primary">Coderootz</a>
     </div>
     <!--end::Copyright-->
     <!--begin::Menu-->
