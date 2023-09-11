@@ -51,7 +51,6 @@ class LoginController extends Controller
             $user_role = Auth::user()->role_id;
             switch ($user_role) {
                 case 1:
-
                     return redirect()->route('masterAdmin.dashboard');
                     break;
                 case 2:

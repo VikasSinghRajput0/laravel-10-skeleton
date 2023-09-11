@@ -16,15 +16,12 @@ class GroupAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         if (!Auth::check()) {
             return redirect()->guest('login');
         }
-
         if (auth()->user()->role_id == 2) {
             return $next($request);
         }
-
         return redirect('login')->with('error', "You don't have admin access.");
     }
 }
