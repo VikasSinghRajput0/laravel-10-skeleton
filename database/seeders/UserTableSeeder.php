@@ -74,11 +74,11 @@ class UserTableSeeder extends Seeder
             ],
             [
 
-                'id' => '5',
+                'id' => '6',
                 'name' => 'Customer',
                 'email' => 'customer@gamil.com',
                 'password' => 'secret',
-                'role_id' => 5,
+                'role_id' => 6,
                 'phone_number' => '9876543210',
                 'active' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
