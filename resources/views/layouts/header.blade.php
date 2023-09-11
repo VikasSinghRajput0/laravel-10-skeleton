@@ -1,3 +1,8 @@
+<style>
+    .select2-selection__rendered{
+        min-width: 250px !important;
+    }
+</style>
 <div id="kt_header" style="" class="header align-items-stretch">
     <!--begin::Container-->
     <div class="container-fluid d-flex align-items-stretch justify-content-between">
@@ -27,7 +32,7 @@
                         <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <span class="menu-link py-3">
-                                <span class="menu-title">Dashboards</span>
+                                <span class="menu-title">Dashboard</span>
                                 <span class="menu-arrow d-lg-none"></span>
                             </span>
                             <!--end:Menu link-->
@@ -306,7 +311,7 @@
                         <!--begin:Menu item-->
                         <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
                             <!--begin:Menu link-->
-                            <select class="form-select form-select-solid" aria-label="Select example">
+                            <select class="form-select form-select-solid"  data-control="select2" aria-label="Select example">
                                 <option>{{ __('Choose Site') }}</option>
                                 <option value="DCLC"> QATAR - DCLC 3PL WAREHOUSE(DCLC)</option>
                                 <option value="DXB-WH"> UNITED ARAB EMIRATES - DXB-WH(DXB)2</option>
