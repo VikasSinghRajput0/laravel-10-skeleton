@@ -66,7 +66,7 @@
 								<div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
 									<div></div>
 									<!--begin::Link-->
-									<a href="../../demo6/dist/authentication/layouts/corporate/reset-password.html" class="link-primary">{{__('Forgot Password ?')}}</a>
+									<a href="/password/reset" class="link-primary">{{__('Forgot Password ?')}}</a>
 									<!--end::Link-->
 								</div>
 								<!--end::Wrapper-->
