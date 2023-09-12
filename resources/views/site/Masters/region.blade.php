@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Region || DashBoard')
+@section('title', 'Region || Master')
 @section('content')
     <style>
         .dt-buttons.btn-group.flex-wrap {
@@ -147,7 +147,7 @@
                             <h2 class="fw-bold">Add a Region</h2>
                             <!--end::Modal title-->
                             <!--begin::Close-->
-                            <div id="region_modal_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                            <div id="region_modal_close" data-bs-dismiss="modal" aria-label="Close" class="btn btn-icon btn-sm btn-active-icon-primary">
                                 <i class="ki-outline ki-cross fs-1"></i>
                             </div>
                             <!--end::Close-->

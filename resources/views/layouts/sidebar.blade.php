@@ -2,7 +2,7 @@
     <!--begin::Brand-->
     <div class="aside-logo py-8" id="kt_aside_logo">
         <!--begin::Logo-->
-        <a href="../../demo6/dist/index.html" class="d-flex align-items-center">
+        <a href="{{route('home')}}" class="d-flex align-items-center">
             <img alt="Logo" src="assets/media/images/carsonFavicon.png" class="h-65px logo" />
 
         </a>

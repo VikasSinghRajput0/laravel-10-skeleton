@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Country || DashBoard')
+@section('title', 'Country || Master')
 @section('content')
     <style>
         .dt-buttons.btn-group.flex-wrap {
