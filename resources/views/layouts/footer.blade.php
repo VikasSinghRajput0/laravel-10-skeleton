@@ -8,14 +8,12 @@
     <!--begin::Menu-->
     <ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
         <li class="menu-item">
-            <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
+            <a href="https://carsonlogistics.net/privacy-policy" class="opacity-75-hover text-primary fw-bold me-1" target="_blank" class="menu-link px-2">Privacy Policy</a>
         </li>
         <li class="menu-item">
-            <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
+            <a href="https://carsonlogistics.net/term-condition" class="opacity-75-hover text-primary fw-bold me-1" target="_blank" class="menu-link px-2">Terms of Use</a>
         </li>
-        <li class="menu-item">
-            <a href="https://1.envato.market/EA4JP" target="_blank" class="menu-link px-2">Purchase</a>
-        </li>
+
     </ul>
     <!--end::Menu-->
 </div>

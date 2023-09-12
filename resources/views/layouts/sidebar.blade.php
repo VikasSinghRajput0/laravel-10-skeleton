@@ -49,32 +49,6 @@
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
-
-
-                        <!--end:Menu item-->
-                        <div class="menu-inner flex-column collapse" id="kt_app_sidebar_menu_dashboards_collapse">
-                            <!--begin:Menu item-->
-                            <div class="menu-item">
-                                <!--begin:Menu link-->
-                                <a class="menu-link" href="javascript:void(0)">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">Bidding</span>
-                                </a>
-                                <!--end:Menu link-->
-                            </div>
-                            <!--end:Menu item-->
-                        </div>
-                        <div class="menu-item">
-                            <div class="menu-content">
-                                <a class="btn btn-flex btn-color-primary d-flex flex-stack fs-base p-0 ms-2 mb-2 toggle collapsible collapsed" data-bs-toggle="collapse" href="#kt_app_sidebar_menu_dashboards_collapse" data-kt-toggle-text="Show Less">
-                                    <span data-kt-toggle-text-target="true">Show 12 More</span>
-                                    <i class="ki-outline ki-minus-square toggle-on fs-2 me-0"></i>
-                                    <i class="ki-outline ki-plus-square toggle-off fs-2 me-0"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                     <!--end:Menu sub-->
                 </div>
