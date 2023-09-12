@@ -59,14 +59,12 @@ Route::get('/group-admin', [GroupAdminController::class, 'index'])->name('groupA
 
 Route::get('/region', [RegionController::class, 'getRegion'])->name('region');
 Route::post('/change_region_status/{id}', [RegionController::class, 'changeStatus'])->name('change.region.status');
-Route::post('/change_region_status_approved/{id}', [RegionController::class, 'changeStatusApproved'])->name('change.region.status.approved');
 Route::post('/add-region', [RegionController::class, 'addRegion']);
 
 /*************************************************** COUNTRY ROUTES ***************************************************/
 
 Route::get('/country', [CountryController::class, 'getCountries'])->name('country');
 Route::post('/change_country_status/{id}', [CountryController::class, 'changeStatus'])->name('change.country.status');
-Route::post('/change_country_status_approved/{id}', [CountryController::class, 'changeStatusApproved'])->name('change.country.status.approved');
 Route::post('/add-country', [CountryController::class, 'addcountry']);
 
 /************************************************

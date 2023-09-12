@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Region || DashBoard')
+@section('title', 'Region || Master')
 @section('content')
     <style>
         .dt-buttons.btn-group.flex-wrap {
@@ -109,18 +109,17 @@
                                         <span class="badge badge-light-danger">De-Active </span>
                                     @endif
                                 </td>
-                                <td class="text-center">
+                                <td class="text-center changeStatus">
+                                     <input type="hidden" class="id" value="{{ $regions->id }}">
                                     @if ($regions->active == 1)
                                         <button
                                             class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm changeStatus">
-                                            <i class="ki-outline ki-trash fs-2 "></i> <input type="hidden" class="id"
-                                                value="{{ $regions->id }}">
+                                            <i class="ki-outline ki-trash fs-2 "></i>
                                         </button>
                                     @else
                                         <button
-                                            class="btn btn-icon btn-bg-light btn-active-color-success btn-sm statusApproved ">
-                                            <span class="label label-rounded label-success ">✔</span> <input type="hidden"
-                                                class="id" value="{{ $regions->id }}">
+                                            class="btn btn-icon btn-bg-light btn-active-color-success btn-sm  ">
+                                            <span class="label label-rounded label-success ">✔</span>
                                         </button>
                                     @endif
                                 </td>
@@ -147,7 +146,7 @@
                             <h2 class="fw-bold">Add a Region</h2>
                             <!--end::Modal title-->
                             <!--begin::Close-->
-                            <div id="region_modal_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                            <div id="region_modal_close" data-bs-dismiss="modal" aria-label="Close" class="btn btn-icon btn-sm btn-active-icon-primary">
                                 <i class="ki-outline ki-cross fs-1"></i>
                             </div>
                             <!--end::Close-->
@@ -296,7 +295,7 @@
                                 timer: 1500,
                                 showConfirmButton: false,
                             });
-                            dataTable.ajax.reload();
+                            location.reload();
                         },
                         error: function(xhr, status, error) {
 
@@ -311,11 +310,6 @@
         $('.changeStatus').on('click', function() {
             var id = $(this).find('.id').val();
             url = "/change_region_status/{id}"
-            changeRegionStatus(id, url);
-        });
-        $('.statusApproved').on('click', function() {
-            var id = $(this).find('.id').val();
-            url = "/change_region_status_approved/{id}"
             changeRegionStatus(id, url);
         });
         $(document).ready(function() {
@@ -336,6 +330,7 @@
                             showConfirmButton: false,
                         });
                         $('#region_modal').modal('hide');
+                        location.reload();
                     },
                     error: function(xhr, status, error) {
                         console.error('Request failed:', error);
