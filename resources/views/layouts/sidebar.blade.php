@@ -142,7 +142,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="">
+                            <a class="menu-link" href="{{route('region')}}">
                                 <span class="menu-icon">
                                     <i class="ki-outline ki-calendar-8 fs-2"></i>
                                 </span>
@@ -155,7 +155,7 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="">
+                            <a class="menu-link" href="{{route('country')}}">
                                 <span class="menu-icon">
                                     <i class="ki-outline ki-calendar-8 fs-2"></i>
                                 </span>
