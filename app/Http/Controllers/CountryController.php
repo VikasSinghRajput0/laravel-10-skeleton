@@ -19,21 +19,11 @@ class CountryController extends Controller
         $country = country::find($id);
         if (!$country) {
             return response()->json(['message' => 'country not found'], 404);
+        }else{
+            $country->active = !$country->active;
+            $country->save();
+            return response()->json(['message' => 'Status changed successfully']);
         }
-        $country->active = $country->active === 0 ? 1 : 0;
-        $country->save();
-        return response()->json(['message' => 'Status changed successfully']);
-    }
-    public function changeStatusApproved(Request $request)
-    {
-        $id = $request->id;
-        $country = country::find($id);
-        if (!$country) {
-            return response()->json(['message' => 'country not found'], 404);
-        }
-        $country->active = $country->active === 1 ? 0 : 1;
-        $country->save();
-        return response()->json(['message' => 'Status changed successfully']);
     }
     public function addcountry(Request $request)
     {
