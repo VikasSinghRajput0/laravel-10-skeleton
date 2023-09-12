@@ -15,8 +15,8 @@
         <!--end::Aside mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="../../demo6/dist/index.html" class="d-lg-none">
-                <img alt="Logo" src="assets/media/logos/demo6.svg" class="h-25px" />
+            <a href="javascript:void(0)" class="d-lg-none">
+                <img alt="Logo" src="assets/media/images/carsonFavicon.png" class="h-25px" />
             </a>
         </div>
         <!--end::Mobile logo-->
