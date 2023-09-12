@@ -66,4 +66,14 @@ class LoginController extends Controller
 
         $this->middleware('guest')->except('logout');
     }
+
+    public function validateDetails(Request $request){
+        // dd($request->all());
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            return response()->json(['isValid' => true], 200);
+        } 
+
+    }
 }
