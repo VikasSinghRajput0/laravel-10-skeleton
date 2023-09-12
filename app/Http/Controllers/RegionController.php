@@ -14,15 +14,15 @@ class RegionController extends Controller
     }
     public function changeStatus(Request $request)
     {
-
         $id = $request->id;
         $region = Region::find($id);
         if (!$region) {
-            return response()->json(['message' => 'Region not found'], 404);
+            return response()->json(['message' => 'country not found'], 404);
+        } else {
+            $region->active = !$region->active;
+            $region->save();
+            return response()->json(['message' => 'Status changed successfully']);
         }
-        $region->active = $region->active === 0 ? 1 : 0;
-        $region->save();
-        return response()->json(['message' => 'Status changed successfully']);
     }
     public function changeStatusApproved(Request $request)
     {
