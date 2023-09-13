@@ -189,7 +189,7 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="../../demo6/dist/account/statements.html" class="menu-link px-5">My Statements</a>
+                            <a href="/optimize" class="menu-link px-5">Clear Cache</a>
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu separator-->

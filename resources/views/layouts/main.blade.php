@@ -79,6 +79,24 @@
 
     <!--begin::Javascript-->
     @include('layouts.scripts')
+     @if ($message = Session::get('success'))
+    <script>
+        var message = "{{$message}}"
+        $(document).ready(function(){
+                Swal.fire({
+                text: message,
+                icon: "success",
+                buttonsStyling: false,
+                confirmButtonText: "Ok, got it!",
+                customClass: {
+                    confirmButton: "btn btn-primary"
+                },
+                timer: 2000, 
+                showConfirmButton: false
+            });
+        })
+    </script>
+    @endif
     @yield("scripts")
     <!--end::Javascript-->
 </body>
