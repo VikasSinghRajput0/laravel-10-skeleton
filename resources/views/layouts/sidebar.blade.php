@@ -28,8 +28,6 @@
                         <span class="menu-title">Home</span>
                         <span class="pulse-ring"></span>
                     </span>
-
-
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
                     <div class="menu-sub menu-sub-dropdown px-2 py-4 w-250px mh-75 overflow-auto">
