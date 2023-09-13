@@ -50075,10 +50075,10 @@ body {
     flex-grow: 0;
 }
 .aside-menu .menu > .menu-item > .menu-link {
-    color: #9899ac;
+    color: #092162;
 }
 .aside-menu .menu > .menu-item > .menu-link .menu-title {
-    color: #9899ac;
+    color: #092162;
 }
 .aside-menu .menu > .menu-item > .menu-link .menu-icon,
 .aside-menu .menu > .menu-item > .menu-link .menu-icon .svg-icon,
@@ -50125,7 +50125,7 @@ body {
     > .menu-item:not(.here)
     > .menu-link:hover:not(.disabled):not(.active):not(.here)
     .menu-title {
-    color: #fff;
+    color: #092162;
 }
 .aside-menu
     .menu
@@ -50205,7 +50205,7 @@ body {
 .aside-menu .menu > .menu-item.here > .menu-link {
     transition: color 0.2s ease;
     background-color: #b4c1d1;
-    color: #fff;
+    color: #092162;
 }
 .aside-menu .menu > .menu-item.here > .menu-link .menu-title {
     color: #06336a;
@@ -50236,10 +50236,10 @@ body {
 }
 .aside-menu .menu > .menu-item.show > .menu-link {
     transition: color 0.2s ease;
-    color: #fff;
+    color:#092162;
 }
 .aside-menu .menu > .menu-item.show > .menu-link .menu-title {
-    color: #fff;
+    color:#092162;
 }
 .aside-menu .menu > .menu-item.show > .menu-link .menu-icon,
 .aside-menu .menu > .menu-item.show > .menu-link .menu-icon .svg-icon,
