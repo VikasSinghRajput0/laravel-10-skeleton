@@ -29,7 +29,7 @@
     --bs-gray-800: #252f4a;
     --bs-gray-900: #071437;
     --bs-light: #f9f9f9;
-    --bs-primary: #e14831;
+    --bs-primary: #06336a;
     --bs-secondary: #dbdfe9;
     --bs-success: #50cd89;
     --bs-info: #7239ea;
@@ -27201,7 +27201,7 @@ fieldset:disabled .btn {
     --bs-gray-900: #071437;
     --bs-gray-900-rgb: 7, 20, 55;
     --bs-light: #f9f9f9;
-    --bs-primary: #e14831;
+    --bs-primary: #06336a;
     --bs-secondary: #dbdfe9;
     --bs-success: #50cd89;
     --bs-info: #7239ea;
@@ -27350,7 +27350,7 @@ fieldset:disabled .btn {
     --bs-gray-900-rgb: 255, 255, 255;
     --bs-white: #ffffff;
     --bs-light: #2b2b40;
-    --bs-primary: #e14831;
+    --bs-primary: #06336a;
     --bs-success: #50cd89;
     --bs-info: #7239ea;
     --bs-warning: #ffc700;
@@ -49675,14 +49675,14 @@ body[data-kt-sticky-landing-header="on"] {
 [data-bs-theme="light"] {
     --bs-page-bg: #f9f9f9;
     --bs-app-blank-bg: #ffffff;
-    --bs-header-default-bg-color: #ffffff;
+    --bs-header-default-bg-color: #06336a;
     --bs-header-fixed-bg-color: #ffffff;
     --bs-header-fixed-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
     --bs-toolbar-bg-color: #ffffff;
     --bs-toolbar-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
     --bs-toolbar-border-top: 1px solid #f1f1f2;
-    --bs-aside-bg-color: #1e1e2d;
-    --bs-aside-logo-bg-color: #1b1b28;
+    --bs-aside-bg-color: #e6ebf1;
+    --bs-aside-logo-bg-color: #e6ebf1;
     --bs-aside-box-shadow: 0 0 28px 0 rgba(82, 63, 105, 0.05);
     --bs-footer-bg-color: #ffffff;
 }
@@ -49695,8 +49695,8 @@ body[data-kt-sticky-landing-header="on"] {
     --bs-toolbar-bg-color: #1a1a27;
     --bs-toolbar-box-shadow: none;
     --bs-toolbar-border-top: 0;
-    --bs-aside-bg-color: #1e1e2d;
-    --bs-aside-logo-bg-color: #1b1b28;
+    --bs-aside-bg-color: #e6ebf1;
+    --bs-aside-logo-bg-color: #e6ebf1;
     --bs-aside-box-shadow: none;
     --bs-footer-bg-color: #1b1b28;
 }
@@ -50204,11 +50204,11 @@ body {
 }
 .aside-menu .menu > .menu-item.here > .menu-link {
     transition: color 0.2s ease;
-    background-color: #1b1b28;
+    background-color: #b4c1d1;
     color: #fff;
 }
 .aside-menu .menu > .menu-item.here > .menu-link .menu-title {
-    color: #fff;
+    color: #06336a;
 }
 .aside-menu .menu > .menu-item.here > .menu-link .menu-icon,
 .aside-menu .menu > .menu-item.here > .menu-link .menu-icon .svg-icon,
