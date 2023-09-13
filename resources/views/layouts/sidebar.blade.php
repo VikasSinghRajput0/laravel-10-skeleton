@@ -3,11 +3,14 @@
     <div class="aside-logo py-8" id="kt_aside_logo">
         <!--begin::Logo-->
         <a href="{{route('home')}}" class="d-flex align-items-center">
-            <img alt="Logo" src="assets/media/images/carsonFavicon.png" class="h-65px logo" />
-
+            <!-- <img alt="Logo" src="assets/media/images/CarsonLogo.png" class="h-75px w-90px logo" /> -->
+            <h3 class="logo">
+                <center>ERP</center> CARSON
+            </h3>
         </a>
         <!--end::Logo-->
     </div>
+
     <!--end::Brand-->
     <!--begin::Aside menu-->
     <div class="aside-menu flex-column-fluid" id="kt_aside_menu">
@@ -18,12 +21,12 @@
                 <!--begin:Menu item-->
                 <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
                     <!--begin:Menu link-->
-                    <span class="menu-link menu-center ">
+                    <span class="menu-link menu-center pulse">
                         <span class="menu-icon me-0">
                             <i class="ki-outline ki-home-2 fs-2x"></i>
-
                         </span>
                         <span class="menu-title">Home</span>
+                        <span class="pulse-ring"></span>
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
@@ -58,15 +61,9 @@
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center">
                         <span class="menu-icon me-0">
-                            <i class="ki-duotone ki-category  ">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                                <span class="path4"></span>
-                            </i>
 
+                            <i class="ki-solid ki-category "></i>
                         </span>
-
                         <span class="menu-title">{{__('Masters')}}</span>
                     </span>
                     <!--end:Menu link-->
@@ -204,12 +201,8 @@
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center">
                         <span class="menu-icon me-0">
-                            <i class="ki-duotone ki-delivery-geolocation  ">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                                <span class="path4"></span>
-                                <span class="path5"></span>
+                            <i class="ki-solid ki-delivery-geolocation  ">
+
                             </i>
                         </span>
                         <span class="menu-title">{{__('TMS')}}</span>
@@ -266,9 +259,7 @@
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center">
                         <span class="menu-icon me-0">
-                            <i class="ki-duotone ki-bank ">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
+                            <i class="ki-solid ki-bank ">
                             </i>
                         </span>
                         <span class="menu-title">{{__('Finance')}}</span>
@@ -324,11 +315,7 @@
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center">
                         <span class="menu-icon me-0">
-                            <i class="ki-duotone ki-profile-user   ">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                                <span class="path4"></span>
+                            <i class="ki-solid ki-profile-user   ">
                             </i>
                         </span>
                         <span class="menu-title">{{__('Hr')}}</span>
