@@ -48,8 +48,6 @@
             <!--end::Navbar-->
             <!--begin::Toolbar wrapper-->
             <div class="d-flex align-items-stretch flex-shrink-0">
-
-
                 <!--begin::Theme mode-->
                 <div class="d-flex align-items-center ms-1 ms-lg-3">
                     <!--begin::Menu toggle-->
