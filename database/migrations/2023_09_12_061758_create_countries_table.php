@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('active');
             $table->string('name');
             $table->string('code');
+            $table->string('region');
             $table->timestamps();
         });
     }

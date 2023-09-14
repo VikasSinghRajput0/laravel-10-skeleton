@@ -7,6 +7,7 @@ use App\Http\Controllers\CountryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\SiteAdminController;
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,11 @@ Route::post('/add-region', [RegionController::class, 'addRegion']);
 Route::get('/country', [CountryController::class, 'getCountries'])->name('country');
 Route::post('/change_country_status/{id}', [CountryController::class, 'changeStatus'])->name('change.country.status');
 Route::post('/add-country', [CountryController::class, 'addcountry']);
+
+/*************************************************** COUNTRY ROUTES ***************************************************/
+
+Route::get('/site', [SiteController::class, 'getSite'])->name('site');
+Route::get('/get_country_data',[SiteController::class, 'getCountryData']);
 
 /************************************************
  *  Site - Admin Route

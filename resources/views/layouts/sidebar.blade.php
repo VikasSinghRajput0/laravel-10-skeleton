@@ -136,6 +136,19 @@
                         </div>
                         <!--end:Menu item-->
 
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="{{route('site')}}">
+                                <span class="menu-icon">
+                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                </span>
+                                <span class="menu-title">Site</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+
                     </div>
                     <!--end:Menu sub-->
                 </div>
