@@ -145,7 +145,9 @@
 											confirmButtonText: "Ok, got it!",
 											customClass: {
 												confirmButton: "btn btn-primary"
-											}
+											},
+											timer: 2000, 
+                							showConfirmButton: false
 										});
 										form.submit();
 
