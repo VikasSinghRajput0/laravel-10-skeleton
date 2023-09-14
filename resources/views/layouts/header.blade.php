@@ -32,7 +32,7 @@
                         <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
                             <!--begin:Menu link-->
                             <select class="form-select form-select-solid" data-control="select2" aria-label="Select example">
-                                <option>{{ __('Choose Site') }}</option>
+                                <option readonly disabled>{{ __('Choose Site') }}</option>
                                 <option value="DCLC"> QATAR - DCLC 3PL WAREHOUSE(DCLC)</option>
                                 <option value="DXB-WH"> UNITED ARAB EMIRATES - DXB-WH(DXB)2</option>
                                 <option value="DCLC-2">QATAR - DCLC-2 3PL WAREHOUSE(DCLC)</option>

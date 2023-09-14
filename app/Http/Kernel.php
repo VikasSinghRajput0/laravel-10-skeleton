@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'masteradmin' => \App\Http\Middleware\MasterAdmin::class,
         'groupadmin' => \App\Http\Middleware\GroupAdmin::class,
         'siteadmin' => \App\Http\Middleware\SiteAdmin::class,
+        'api_access' => \App\Http\Middleware\ApiMiddleware::class
     ];
 }
