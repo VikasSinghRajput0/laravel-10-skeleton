@@ -26,6 +26,7 @@ class ApiController extends Controller
             if ($userData) {
                 $userData->device_token = $request->device_token;
                 $userData->api_token =  Str::random(60);
+                $userData->api_token_expires_at = now()->addHours(24); // Adjust the expiration time as needed
                 $userData->device_type = $request->device_type ?? '';
                 $userData->update();
                 $responseData = [

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->bigInteger('user_otp')->nullable();
             $table->integer('otp_verify')->nullable();
             $table->string('country_code')->default('+974');
+            $table->timestamp('api_token_expires_at')->nullable();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

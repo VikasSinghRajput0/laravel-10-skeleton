@@ -23,8 +23,16 @@ class ApiMiddleware
             if ($request->header('authorization')) {
                 $token = explode(" ", $request->header('authorization'));
                 if ($token[0] === 'Bearer') {
-                    $user = User::where('api_token', $token[1]);
-                    if ($user->exists()) {
+
+                    $user = User::where('api_token', $token[1])->first();
+                    if ($user && $user->api_token_expires_at && now()->gte($user->api_token_expires_at)) {
+                        // Token has expired; return an error response
+                        Auth::logout(); // Logout the user
+                        $user->api_token = null; // Optionally revoke the token by setting it to null
+                        $user->save();
+                        return response()->json(["status_code" => 401, "error" => false, "data" => "", "message" => "Token has expired"], 401);
+                    }
+                    if ($user) {
                         $request->request->add(['user' => $user->get()->toArray()[0]]);
                         if (!Auth::check()) {
                             Auth::loginUsingId($user->get()->toArray()[0]['id'], true);

@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/v1/login', [ApiController::class, 'login']);
-
+Route::post('/logout', [ApiController::class, 'logout']);
 /*
     |--------------------------------------------------------------------------
     |                               API ACCESS ROUTES 
@@ -29,5 +29,4 @@ Route::post('/v1/login', [ApiController::class, 'login']);
     */
 
 Route::group(array('prefix' => 'v1', 'middleware' => ['api_access']), function () {
-    Route::post('/logout', [ApiController::class, 'logout']);
 });
