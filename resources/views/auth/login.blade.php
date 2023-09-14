@@ -86,7 +86,6 @@
 	<script src="assets/js/scripts.bundle.js"></script>
 	<script>
 		const form = document.getElementById('kt_sign_in_form');
-		console.log(form);
 		var validator = FormValidation.formValidation(
 			form, {
 				fields: {

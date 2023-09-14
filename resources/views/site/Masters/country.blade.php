@@ -36,7 +36,7 @@
 
                     <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                         <i class="ki-duotone ki-exit-down fs-2"><span class="path1"></span><span class="path2"></span></i>
-                        Export Report
+                        Export Countries
                     </button>
                     <!--begin::Menu-->
                     <div id="country_export_menu" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4" data-kt-menu="true">
@@ -82,6 +82,7 @@
                         </th>
                         <th class="min-w-125px text-center">Country Name</th>
                         <th class="min-w-125px text-center"> Country Code</th>
+                        <th class="min-w-125px text-center">Region</th>
                         <th class="min-w-125px text-center">Status</th>
                         <th class="text-center min-w-70px">Actions</th>
                     </tr>
@@ -96,6 +97,7 @@
                         </td>
                         <td class="text-center"> {{ $countries->name }} </td>
                         <td class="text-center"> {{ $countries->code }} </td>
+                        <td class="text-center"> {{ $countries->region }} </td>
                         <td class="text-center">
                             @if ($countries->active == 1)
                             <span class="badge badge-light-success">Active</span>
@@ -107,11 +109,15 @@
                             <input type="hidden" class="id" value="{{ $countries->id }}">
                             @if ($countries->active == 1)
                             <button class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm ">
-                                <i class="ki-outline ki-trash fs-2 "></i>
+                                <div class="form-check form-switch form-check-custom form-check-success form-check-solid">
+                                    <input class="form-check-input " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1"/>
+                                </div>
                             </button>
                             @else
                             <button class="btn btn-icon btn-bg-light btn-active-color-success btn-sm statusApproved ">
-                                <span class="label label-rounded label-success ">✔</span>
+                                <div class="form-check form-switch form-check-custom form-check-solid">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexSwitchDefault"/>
+                                </div>
                             </button>
                             @endif
                         </td>

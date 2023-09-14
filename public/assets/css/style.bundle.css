@@ -49695,8 +49695,8 @@ body[data-kt-sticky-landing-header="on"] {
     --bs-toolbar-bg-color: #1a1a27;
     --bs-toolbar-box-shadow: none;
     --bs-toolbar-border-top: 0;
-    --bs-aside-bg-color: #e6ebf1;
-    --bs-aside-logo-bg-color: #e6ebf1;
+    --bs-aside-bg-color: #1f1b2d00;
+    --bs-aside-logo-bg-color: #1f1b2d00;
     --bs-aside-box-shadow: none;
     --bs-footer-bg-color: #1b1b28;
 }
