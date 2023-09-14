@@ -12,7 +12,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="shortcut icon" href="assets/media/images/carsonFavicon.png" />
+    <link rel="shortcut icon" href="assets/media/images/CarsonLogo.png" />
 
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
@@ -79,11 +79,11 @@
 
     <!--begin::Javascript-->
     @include('layouts.scripts')
-     @if ($message = Session::get('success'))
+    @if ($message = Session::get('success'))
     <script>
         var message = "{{$message}}"
-        $(document).ready(function(){
-                Swal.fire({
+        $(document).ready(function() {
+            Swal.fire({
                 text: message,
                 icon: "success",
                 buttonsStyling: false,
@@ -91,7 +91,7 @@
                 customClass: {
                     confirmButton: "btn btn-primary"
                 },
-                timer: 2000, 
+                timer: 2000,
                 showConfirmButton: false
             });
         })

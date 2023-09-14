@@ -88,11 +88,11 @@
                 </thead>
 
                 <tbody class="fw-semibold text-gray-600">
-                    @php($sr = 1)
-                    @foreach ($country as $countries)
+
+                    @foreach ($country as $key => $countries)
                     <tr class="text-uppercase">
                         <td>
-                            {{ $sr }}
+                            {{ $key+1 }}
                         </td>
                         <td class="text-center"> {{ $countries->name }} </td>
                         <td class="text-center"> {{ $countries->code }} </td>
@@ -116,7 +116,7 @@
                             @endif
                         </td>
                     </tr>
-                    @php($sr++)
+
                     @endforeach
                 </tbody>
 
