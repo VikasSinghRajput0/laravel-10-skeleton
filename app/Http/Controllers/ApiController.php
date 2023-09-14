@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Services\Helper;
 use Exception;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -22,13 +23,21 @@ class ApiController extends Controller
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'active' => 1])) {
             $userData = User::where('email', $request->email)->first();
-            $responseData = [
-                'success' => true,
-                'message' => 'Login Success',
-                'data' => $userData,
-                'method' => 'POST'
-            ];
-            return Helper::responseOnSuccess($responseData);
+            if ($userData) {
+                $userData->device_token = $request->device_token;
+                $userData->api_token =  Str::random(60);
+                $userData->device_type = $request->device_type ?? '';
+                $userData->update();
+                $responseData = [
+                    'success' => true,
+                    'message' => 'Login Success',
+                    'data' => $userData,
+                    'method' => 'POST'
+                ];
+                return Helper::responseOnSuccess($responseData);
+            } else {
+                return Helper::responseOnFailure();
+            }
         } else {
             return response()->json([
                 'success' => false,
