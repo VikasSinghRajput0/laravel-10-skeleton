@@ -7,11 +7,17 @@ use Illuminate\Http\Request;
 
 class CountryController extends Controller
 {
+    /**
+     * GET THE COUNTRY BLADE VIEW
+     */
     public function getCountries()
     {
         $country = Country::get();
         return view('site.Masters.country', compact('country'));
     }
+    /**
+     * CHANGE THE STATUS OF COUNTRY ACTIVE OR INACTIVE
+     */
     public function changeStatus(Request $request)
     {
 
@@ -25,9 +31,11 @@ class CountryController extends Controller
             return response()->json(['message' => 'Status changed successfully']);
         }
     }
+    /**
+     * ADDING NEW COUNTRY
+     */
     public function addcountry(Request $request)
     {
-        // dd($request->all());
         $country = new country();
         $country->name = $request->name;
         $country->code = $request->code;

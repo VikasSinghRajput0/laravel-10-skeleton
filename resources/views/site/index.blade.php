@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','Home || DashBoard')
 @section('content')
-<div id="kt_content_container" class="container-xxl">
+<div id="kt_content_container">
     <!--begin::Row-->
     <h1>MasterAdmin</h1>
     <div class="row g-5 gx-xl-10 mb-5 mb-xl-10">

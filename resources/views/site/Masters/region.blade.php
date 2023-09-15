@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div id="kt_content_container" class="container-xxl">
+    <div id="kt_content_container" >
         <div class="card">
             <div class="card-header border-0 pt-6">
                 <div class="card-title">
@@ -40,7 +40,7 @@
                             data-kt-menu-placement="bottom-end">
                             <i class="ki-duotone ki-exit-down fs-2"><span class="path1"></span><span
                                     class="path2"></span></i>
-                            Export Report
+                            Export Region
                         </button>
                         <!--begin::Menu-->
                         <div id="region_export_menu"
@@ -87,7 +87,6 @@
                                 Sr NO.
                             </th>
                             <th class="min-w-125px text-center">Region Name</th>
-                            <th class="min-w-125px text-center">Code</th>
                             <th class="min-w-125px text-center">Status</th>
                             <th class="text-center min-w-70px">Actions</th>
                         </tr>
@@ -101,26 +100,27 @@
                                     {{ $sr }}
                                 </td>
                                 <td class="text-center"> {{ $regions->name }} </td>
-                                <td class="text-center"> {{ $regions->code }} </td>
                                 <td class="text-center">
                                     @if ($regions->active == 1)
                                         <span class="badge badge-light-success">Active</span>
                                     @else
-                                        <span class="badge badge-light-danger">De-Active </span>
+                                        <span class="badge badge-light-danger">InActive </span>
                                     @endif
                                 </td>
                                 <td class="text-center changeStatus">
-                                     <input type="hidden" class="id" value="{{ $regions->id }}">
+                                    <input type="hidden" class="id" value="{{ $regions->id }}">
                                     @if ($regions->active == 1)
-                                        <button
-                                            class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm changeStatus">
-                                            <i class="ki-outline ki-trash fs-2 "></i>
-                                        </button>
+                                    <button class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm ">
+                                        <div class="form-check form-switch form-check-custom form-check-success form-check-solid">
+                                            <input class="form-check-input erpCheckbox " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1"/>
+                                        </div>
+                                    </button>
                                     @else
-                                        <button
-                                            class="btn btn-icon btn-bg-light btn-active-color-success btn-sm  ">
-                                            <span class="label label-rounded label-success ">✔</span>
-                                        </button>
+                                    <button class="btn btn-icon btn-bg-light btn-active-color-success btn-sm statusApproved ">
+                                        <div class="form-check form-switch form-check-custom form-check-solid">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexSwitchDefault"/>
+                                        </div>
+                                    </button>
                                     @endif
                                 </td>
                             </tr>

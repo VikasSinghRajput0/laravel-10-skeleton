@@ -28,18 +28,11 @@
                 <div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
                     <!--begin::Menu-->
                     <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-state-primary menu-title-gray-700 menu-arrow-gray-400 fw-semibold my-5 my-lg-0 px-2 px-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
-                        <!--begin:Menu item-->
-                        <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
-                            <!--begin:Menu link-->
-                            <select class="form-select form-select-solid" data-control="select2" aria-label="Select example">
-                                <option>{{ __('Choose Site') }}</option>
-                                <option value="DCLC"> QATAR - DCLC 3PL WAREHOUSE(DCLC)</option>
-                                <option value="DXB-WH"> UNITED ARAB EMIRATES - DXB-WH(DXB)2</option>
-                                <option value="DCLC-2">QATAR - DCLC-2 3PL WAREHOUSE(DCLC)</option>
-                            </select>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
+                        <h3 class="mt-6  fw-bold text-white">
+                            <i class="ki-solid ki-airplane-square fs-2x">
+
+                            </i>CARSON LOGISTICS W.L.L.
+                        </h3>
                     </div>
                     <!--end::Menu-->
                 </div>
@@ -49,7 +42,21 @@
             <!--begin::Toolbar wrapper-->
             <div class="d-flex align-items-stretch flex-shrink-0">
 
-
+                <!--begin::Site mode-->
+                <div class="menu menu-rounded menu-column menu-lg-row menu-active-bg menu-state-primary menu-title-gray-700 menu-arrow-gray-400 fw-semibold my-5 my-lg-0 px-2 px-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
+                    <!--begin:Menu item-->
+                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
+                        <!--begin:Menu link-->
+                        <select class="form-select form-select-solid" aria-label="Select example">
+                            <option readonly disabled>{{ __('Choose Site') }}</option>
+                            <option value="DCLC"> QATAR - DCLC 3PL WAREHOUSE(DCLC)</option>
+                            <option value="DXB-WH"> UNITED ARAB EMIRATES - DXB-WH(DXB)2</option>
+                            <option value="DCLC-2">QATAR - DCLC-2 3PL WAREHOUSE(DCLC)</option>
+                        </select>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                </div>
                 <!--begin::Theme mode-->
                 <div class="d-flex align-items-center ms-1 ms-lg-3">
                     <!--begin::Menu toggle-->
@@ -59,6 +66,7 @@
                     </a>
                     <!--begin::Menu toggle-->
                     <!--begin::Menu-->
+
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-title-gray-700 menu-icon-gray-500 menu-active-bg menu-state-color fw-semibold py-4 fs-base w-150px" data-kt-menu="true" data-kt-element="theme-mode-menu">
                         <!--begin::Menu item-->
                         <div class="menu-item px-3 my-0">

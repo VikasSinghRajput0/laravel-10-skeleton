@@ -26,7 +26,6 @@
                             <i class="ki-outline ki-home-2 fs-2x"></i>
                         </span>
                         <span class="menu-title">Home</span>
-                        <span class="pulse-ring"></span>
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
@@ -131,6 +130,19 @@
                                     <i class="ki-outline ki-calendar-8 fs-2"></i>
                                 </span>
                                 <span class="menu-title">Country</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="{{route('site')}}">
+                                <span class="menu-icon">
+                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                </span>
+                                <span class="menu-title">Site</span>
                             </a>
                             <!--end:Menu link-->
                         </div>

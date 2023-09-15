@@ -29,7 +29,8 @@ class User extends Authenticatable
         'api_token',
         'device_type',
         'active',
-        'user_otp'
+        'user_otp',
+        'api_token_expires_at'
     ];
 
     /**
