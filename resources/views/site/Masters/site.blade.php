@@ -184,7 +184,7 @@
                                 <label class="fs-6 fw-semibold mb-2">Region</label>
                                 <!--end::Label-->
                                 <!--begin::Select 2-->
-                                <select class="form-select form-select-solid regionData" id="data-change" data-control="select2" name = "region" aria-label="Select example">
+                                <select class="form-select form-select-solid regionData siteRegion" id="data-change" data-control="select2" name = "region" aria-label="Select example">
                                     <option>{{ __('Choose Region') }}</option>
                                     @foreach ($region as $key => $regions)
                                         <option value="{{ $regions->name }}">{{ $regions->name }}</option>
@@ -199,7 +199,7 @@
                                 <label class="fs-6 fw-semibold mb-2">Country</label>
                                 <!--end::Label-->
                                 <!--begin::Select 2-->
-                                <select class="form-select form-select-solid countryData" name = "country" data-control="select2" aria-label="Select example">
+                                <select class="form-select form-select-solid countryData siteCountry" name = "country" data-control="select2" aria-label="Select example">
                                     <option> Choose Country </option>
                                     
                                 </select>
@@ -212,7 +212,7 @@
                                 <label class="required fs-6 fw-semibold mb-2">Site Name</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="Site Name"
+                                <input type="text" class="form-control form-control-solid siteName" placeholder="Site Name"
                                     name="name" required />
                                 <!--end::Input-->
                             </div>
@@ -223,8 +223,8 @@
                                 <label class="fs-6 fw-semibold mb-2">Site Code</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="Site Code"
-                                    name="code" required />
+                                <input type="text" class="form-control form-control-solid siteCode" placeholder="Site Code"
+                                    name="code" required  readonly/>
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -296,7 +296,7 @@
                                 <label class="fs-6 fw-semibold mb-2">Region</label>
                                 <!--end::Label-->
                                 <!--begin::input-->
-                               <input type="text" class="form-control form-control-solid" placeholder="" name="region" readonly />
+                               <input type="text" class="form-control form-control-solid siteRegion" placeholder="" name="region" readonly />
                                    
                                 <!--end::input-->
                             </div>
@@ -307,7 +307,7 @@
                                 <label class="fs-6 fw-semibold mb-2">Country</label>
                                 <!--end::Label-->
                                 <!--begin::Select 2-->
-                                <input type="text" class="form-control form-control-solid" placeholder=""
+                                <input type="text" class="form-control form-control-solid siteCountry" placeholder=""
                                     name="country" readonly />
                                 <!--end::Select 2-->
                             </div>
@@ -318,7 +318,7 @@
                                 <label class="required fs-6 fw-semibold mb-2">Site Name</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="Site Name"
+                                <input type="text" class="form-control form-control-solid siteName" placeholder="Site Name"
                                     name="name" required />
                                 <!--end::Input-->
                             </div>
@@ -329,8 +329,8 @@
                                 <label class="fs-6 fw-semibold mb-2">Site Code</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="Site Code"
-                                    name="code" required />
+                                <input type="text" class="form-control form-control-solid siteCode" placeholder="Site Code"
+                                    name="code" required readonly />
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
@@ -572,6 +572,20 @@
                 });
             });
         });
+
+        $('.siteName').on('input', function(){
+            let siteRegion = $(`.siteRegion`).val();
+            let siteCountry = $(`.siteCountry`).val();
+            let siteName = $(`.siteName`).val();
+            let regionCode = siteRegion.substring(0, 2);
+            let countryCode = siteCountry.substring(0, 2);
+            let nameCode = siteName.substring(0, 2);
+            let uniqueNum = Math.floor( Math.random()*99 ) + 100 
+            console.log(uniqueNum);
+            let siteCode = regionCode + countryCode + nameCode + uniqueNum;
+            $(`.siteCode`).val(siteCode);
+        })
+
     </script>
 
 @endsection
