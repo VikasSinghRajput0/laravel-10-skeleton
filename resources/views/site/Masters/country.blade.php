@@ -22,7 +22,7 @@
         </div>
     </div>
 </div>
-<div id="kt_content_container" class="container-xxl">
+<div id="kt_content_container">
     <div class="card">
         <div class="card-header border-0 pt-6">
             <div class="card-title">

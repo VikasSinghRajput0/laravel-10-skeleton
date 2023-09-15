@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('title','Home || DashBoard')
 @section('content')
-<div id="kt_content_container" class="container-xxl">
+<div id="kt_content_container" >
     <!--begin::Row-->
     <div class="row g-5 g-xl-10">
         <!--begin::Col-->

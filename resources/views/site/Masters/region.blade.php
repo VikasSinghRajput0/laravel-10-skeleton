@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    <div id="kt_content_container" class="container-xxl">
+    <div id="kt_content_container" >
         <div class="card">
             <div class="card-header border-0 pt-6">
                 <div class="card-title">
@@ -87,7 +87,6 @@
                                 Sr NO.
                             </th>
                             <th class="min-w-125px text-center">Region Name</th>
-                            <th class="min-w-125px text-center">Code</th>
                             <th class="min-w-125px text-center">Status</th>
                             <th class="text-center min-w-70px">Actions</th>
                         </tr>
@@ -101,7 +100,6 @@
                                     {{ $sr }}
                                 </td>
                                 <td class="text-center"> {{ $regions->name }} </td>
-                                <td class="text-center"> {{ $regions->code }} </td>
                                 <td class="text-center">
                                     @if ($regions->active == 1)
                                         <span class="badge badge-light-success">Active</span>

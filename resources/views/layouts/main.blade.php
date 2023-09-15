@@ -52,9 +52,12 @@
 
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                    <!--begin::Container-->
-                    @yield('content')
-                    <!--end::Container-->
+                    <div class="container-fluid">
+                        <!--begin::Container-->
+                        @yield('content')
+                        <!--end::Container-->
+                    </div>
+                    
                 </div>
                 <!--end::Content-->
                 <!--begin::Footer-->
