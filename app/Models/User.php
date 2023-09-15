@@ -30,7 +30,10 @@ class User extends Authenticatable
         'device_type',
         'active',
         'user_otp',
-        'api_token_expires_at'
+        'api_token_expires_at',
+        'profile_image',
+        'company_name',
+
     ];
 
     /**
@@ -51,7 +54,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'site_id' => 'array',
     ];
+
 
     /**
      * The attributes that are mass assignable.

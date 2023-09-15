@@ -6,6 +6,7 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterAdminController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteAdminController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Artisan;
@@ -40,7 +41,8 @@ Route::get('/', function () {
 Route::post('/check-user-detail', [LoginController::class, 'validateDetails']);
 Auth::routes();
 Route::get('logout', [LoginController::class, 'logout']);
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.overview');
 
 /************************************************
  *  Matser - Admin Route
@@ -68,8 +70,8 @@ Route::post('/change_country_status/{id}', [CountryController::class, 'changeSta
 /*************************************************** COUNTRY ROUTES ***************************************************/
 
 Route::get('/site', [SiteController::class, 'getSite'])->name('site');
-Route::get('/get_country_data',[SiteController::class, 'getCountryData']);
-Route::post('/add-site',[SiteController::class, 'addSiteData']);
+Route::get('/get_country_data', [SiteController::class, 'getCountryData']);
+Route::post('/add-site', [SiteController::class, 'addSiteData']);
 Route::post('/change_site_status/{id}', [SiteController::class, 'changeStatus'])->name('change.site.status');
 Route::post('/edit_site_data', [SiteController::class, 'editSite'])->name('edit.site.data');
 Route::post('/edit-site', [SiteController::class, 'editSiteData']);
