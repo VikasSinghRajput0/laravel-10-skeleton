@@ -4,7 +4,8 @@
 <head>
 	<title>Login</title>
 	<meta charset="utf-8" />
-	<link rel="shortcut icon" href="/holiscope-favicon.png" />
+
+	<link rel="shortcut icon" href="assets/media/images/CarsonLogo.png" />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 	<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
@@ -63,6 +64,7 @@
 				<div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">
 					<a href="javascript:void(0)" class="mb-0 mb-lg-12">
 						<img alt="Logo" src="holiscope-favicon.png" class="h-80px h-lg-95px" />
+
 					</a>
 					<img class="d-none d-lg-block mx-auto w-275px w-md-50 w-xl-500px mb-10 mb-lg-20" src="" alt="" />
 					<h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">Fast, Efficient and Productive</h1>
@@ -145,8 +147,8 @@
 											customClass: {
 												confirmButton: "btn btn-primary"
 											},
-											timer: 2000, 
-                							showConfirmButton: false
+											timer: 2000,
+											showConfirmButton: false
 										});
 										form.submit();
 
