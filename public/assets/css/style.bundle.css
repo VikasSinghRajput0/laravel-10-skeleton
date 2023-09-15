@@ -49682,7 +49682,7 @@ body[data-kt-sticky-landing-header="on"] {
     --bs-header-default-bg-color: #06336a;
     --bs-header-fixed-bg-color: #ffffff;
     --bs-header-fixed-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-    --bs-toolbar-bg-color: #ffffff;
+    --bs-toolbar-bg-color: #e6ebf1;
     --bs-toolbar-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
     --bs-toolbar-border-top: 1px solid #f1f1f2;
     --bs-aside-bg-color: #e6ebf1;
@@ -49696,7 +49696,7 @@ body[data-kt-sticky-landing-header="on"] {
     --bs-header-default-bg-color: #1e1e2d;
     --bs-header-fixed-bg-color: #1e1e2d;
     --bs-header-fixed-box-shadow: 0px 10px 30px 0px rgba(82, 63, 105, 0.05);
-    --bs-toolbar-bg-color: #1a1a27;
+    --bs-toolbar-bg-color: #e6ebf1;
     --bs-toolbar-box-shadow: none;
     --bs-toolbar-border-top: 0;
     --bs-aside-bg-color: #1f1b2d00;
