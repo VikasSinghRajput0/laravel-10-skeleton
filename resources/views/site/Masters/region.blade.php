@@ -106,7 +106,7 @@
                                     @if ($regions->active == 1)
                                         <span class="badge badge-light-success">Active</span>
                                     @else
-                                        <span class="badge badge-light-danger">De-Active </span>
+                                        <span class="badge badge-light-danger">InActive </span>
                                     @endif
                                 </td>
                                 <td class="text-center changeStatus">
@@ -114,7 +114,7 @@
                                     @if ($regions->active == 1)
                                     <button class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm ">
                                         <div class="form-check form-switch form-check-custom form-check-success form-check-solid">
-                                            <input class="form-check-input " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1"/>
+                                            <input class="form-check-input erpCheckbox " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1"/>
                                         </div>
                                     </button>
                                     @else

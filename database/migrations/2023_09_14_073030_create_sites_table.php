@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
-            $table->string('site_name')->nullable();
-            $table->string('site_code')->nullable();
-            $table->string('site_country')->nullable();
-            $table->string('site_region')->nullable();
+            $table->string('name')->nullable();
+            $table->string('code')->nullable();
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
             $table->string('active')->nullable();
             $table->timestamps();
         });
