@@ -46,7 +46,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Default</span>
+                                <span class="menu-title">{{__('DashBoard')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -84,7 +84,7 @@
                                 <span class="menu-icon">
                                     <i class="ki-duotone ki-profile-user"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 </span>
-                                <span class="menu-title">{{__('User')}}</span>
+                                <span class="menu-title">{{__('Role/User')}}</span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:Menu link-->
