@@ -81,10 +81,10 @@
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                             <!--begin:Menu link-->
                             <span class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
+                                <span class="menu-icon">
+                                    <i class="ki-duotone ki-profile-user"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 </span>
-                                <span class="menu-title">{{__('Example')}}</span>
+                                <span class="menu-title">{{__('User')}}</span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:Menu link-->
@@ -93,11 +93,11 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="javascript:void(0)">
+                                    <a class="menu-link" href="{{route('user')}}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">{{__('AIR DTD')}}</span>
+                                        <span class="menu-title">{{__('Add User')}}</span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -114,7 +114,7 @@
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{route('region')}}">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                    <i class="fa-solid fa-globe"></i>
                                 </span>
                                 <span class="menu-title">{{__('Region')}}</span>
                             </a>
@@ -127,7 +127,8 @@
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{route('country')}}">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                    {{-- <i class="ki-outline ki-calendar-8 fs-2"></i> --}}
+                                    <i class="fa-solid fa-flag"></i>
                                 </span>
                                 <span class="menu-title">{{__('Country')}}</span>
                             </a>
@@ -140,27 +141,13 @@
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{route('site')}}">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                    <i class="fa-solid fa-location-dot"></i>
                                 </span>
                                 <span class="menu-title">{{__('Site')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
-
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="{{route('user')}}">
-                                <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
-                                </span>
-                                <span class="menu-title">{{__('User')}}</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-
                     </div>
                     <!--end:Menu sub-->
                 </div>
