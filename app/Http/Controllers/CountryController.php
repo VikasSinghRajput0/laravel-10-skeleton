@@ -31,16 +31,5 @@ class CountryController extends Controller
             return response()->json(['message' => 'Status changed successfully']);
         }
     }
-    /**
-     * ADDING NEW COUNTRY
-     */
-    public function addcountry(Request $request)
-    {
-        $country = new country();
-        $country->name = $request->name;
-        $country->code = $request->code;
-        $country->active = $request->status;
-        $country->save();
-        return response()->json(['message' => 'Country ADDEDD SUCCESSFULLY']);
-    }
+    
 }

@@ -74,8 +74,6 @@
                                 </a>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#region_modal">Add Region</button>
                     </div>
                 </div>
             </div>
@@ -130,88 +128,6 @@
 
 
                 </table>
-            </div>
-        </div>
-        <div class="modal fade" id="region_modal" tabindex="-1" aria-hidden="true">
-            <!--begin::Modal dialog-->
-            <div class="modal-dialog modal-dialog-centered mw-650px">
-                <!--begin::Modal content-->
-                <div class="modal-content">
-                    <!--begin::Form-->
-                    <form class="form" id="regionForm" data-kt-redirect="">
-                        @csrf
-                        <!--begin::Modal header-->
-                        <div class="modal-header" id="region_modal_header">
-                            <!--begin::Modal title-->
-                            <h2 class="fw-bold">Add a Region</h2>
-                            <!--end::Modal title-->
-                            <!--begin::Close-->
-                            <div id="region_modal_close" data-bs-dismiss="modal" aria-label="Close" class="btn btn-icon btn-sm btn-active-icon-primary">
-                                <i class="ki-outline ki-cross fs-1"></i>
-                            </div>
-                            <!--end::Close-->
-                        </div>
-                        <!--end::Modal header-->
-                        <!--begin::Modal body-->
-                        <div class="modal-body py-10 px-lg-17">
-                            <!--begin::Scroll-->
-                            <div class="scroll-y me-n7 pe-7" id="region_modal_scroll" data-kt-scroll="true"
-                                data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto"
-                                data-kt-scroll-dependencies="#region_modal_header"
-                                data-kt-scroll-wrappers="#region_modal_scroll" data-kt-scroll-offset="300px">
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-7">
-                                    <!--begin::Label-->
-                                    <label class="required fs-6 fw-semibold mb-2">Region Name</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid"
-                                        placeholder="Region Name" name="name" required />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-15">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Region Code</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid"
-                                        placeholder="Region Code" name="code" required />
-                                    <!--end::Input-->
-                                </div>
-
-                                <!--end::Input group-->
-                                <div class="fv-row mb-15">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Region Status</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <select class="form-select" name="status" data-control="select2">
-                                        <option value="1">Active</option>
-                                        <option value="0">De-Active</option>
-                                    </select>
-                                    <!--end::Input-->
-                                </div>
-                            </div>
-                            <!--end::Scroll-->
-                        </div>
-                        <!--end::Modal body-->
-                        <!--begin::Modal footer-->
-                        <div class="modal-footer flex-center">
-                            <!--begin::Button-->
-                            <button type="reset" id="region_modal_cancel" class="btn btn-light me-3">Discard</button>
-                            <!--end::Button-->
-                            <!--begin::Button-->
-                            <button type="submit" class="btn btn-primary submit">
-                                Submit
-                            </button>
-                            <!--end::Button-->
-                        </div>
-                        <!--end::Modal footer-->
-                    </form>
-                    <!--end::Form-->
-                </div>
             </div>
         </div>
     </div>
@@ -311,32 +227,6 @@
             var id = $(this).find('.id').val();
             url = "/change_region_status/{id}"
             changeRegionStatus(id, url);
-        });
-        $(document).ready(function() {
-
-            $('#regionForm').submit(function(e) {
-                e.preventDefault();
-                var formData = $(this).serialize();
-                $.ajax({
-                    type: 'POST',
-                    url: '/add-region',
-                    data: formData,
-                    success: function(response) {
-
-                        Swal.fire({
-                            text: response.message,
-                            icon: "success",
-                            timer: 1500,
-                            showConfirmButton: false,
-                        });
-                        $('#region_modal').modal('hide');
-                        location.reload();
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Request failed:', error);
-                    },
-                });
-            });
         });
     </script>
 @endsection

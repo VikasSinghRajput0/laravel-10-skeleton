@@ -31,16 +31,4 @@ class RegionController extends Controller
             return response()->json(['message' => 'Status changed successfully']);
         }
     }
-    /**
-     * ADDING NEW REGION
-     */
-    public function addRegion(Request $request)
-    {
-        $addRegion = new Region();
-        $addRegion->name = $request->name;
-        $addRegion->code = $request->code;
-        $addRegion->active = $request->status;
-        $addRegion->save();
-        return response()->json(['message' => 'REGION ADDEDD SUCCESSFULLY']);
-    }
 }

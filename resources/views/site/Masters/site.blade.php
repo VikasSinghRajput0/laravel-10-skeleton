@@ -334,27 +334,12 @@
                                 <!--end::Input-->
                             </div>
                             <!--end::Input group-->
-
-                            <div class="fv-row mb-15">
-                                <!--begin::Label-->
-                                <label class="fs-6 fw-semibold mb-2">Site Status</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <select class="form-select" name="status" data-control="select2">
-                                    <option value="1">Active</option>
-                                    <option value="0">De-Active</option>
-                                </select>
-                                <!--end::Input-->
-                            </div>
                         </div>
                         <!--end::Scroll-->
                     </div>
                     <!--end::Modal body-->
                     <!--begin::Modal footer-->
                     <div class="modal-footer flex-center">
-                        <!--begin::Button-->
-                        <button type="reset" id="modal_edit_site_cancel" class="btn btn-light me-3">Discard</button>
-                        <!--end::Button-->
                         <!--begin::Button-->
                         <button type="submit" class="btn btn-primary">
                             Update

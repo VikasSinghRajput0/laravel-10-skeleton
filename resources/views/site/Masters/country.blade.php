@@ -69,7 +69,6 @@
                         </div>
                         <!--end::Menu item-->
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_country">Add Country</button>
                 </div>
             </div>
         </div>
@@ -128,83 +127,6 @@
 
 
             </table>
-        </div>
-    </div>
-    <div class="modal fade" id="modal_add_country" tabindex="-1" aria-hidden="true">
-        <!--begin::Modal dialog-->
-        <div class="modal-dialog modal-dialog-centered mw-650px">
-            <!--begin::Modal content-->
-            <div class="modal-content">
-                <!--begin::Form-->
-                <form class="form" id="countryForm" data-kt-redirect="">
-                    @csrf
-                    <!--begin::Modal header-->
-                    <div class="modal-header" id="modal_add_country_header">
-                        <!--begin::Modal title-->
-                        <h2 class="fw-bold">Add a Country</h2>
-                        <!--end::Modal title-->
-                        <!--begin::Close-->
-                        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
-                            <i class="ki-outline ki-cross fs-1"></i>
-                        </div>
-                        <!--end::Close-->
-                    </div>
-                    <!--end::Modal header-->
-                    <!--begin::Modal body-->
-                    <div class="modal-body py-10 px-lg-17">
-                        <!--begin::Scroll-->
-                        <div class="scroll-y me-n7 pe-7" id="modal_add_country_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#modal_add_country_header" data-kt-scroll-wrappers="#modal_add_country_scroll" data-kt-scroll-offset="300px">
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-7">
-                                <!--begin::Label-->
-                                <label class="required fs-6 fw-semibold mb-2">Country Name</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="Country Name" name="name" required />
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="fv-row mb-15">
-                                <!--begin::Label-->
-                                <label class="fs-6 fw-semibold mb-2">Country Code</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <input type="text" class="form-control form-control-solid" placeholder="Country Code" name="code" required />
-                                <!--end::Input-->
-                            </div>
-
-                            <!--end::Input group-->
-                            <div class="fv-row mb-15">
-                                <!--begin::Label-->
-                                <label class="fs-6 fw-semibold mb-2">Country Status</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <select class="form-select" name="status" data-control="select2">
-                                    <option value="1">Active</option>
-                                    <option value="0">De-Active</option>
-                                </select>
-                                <!--end::Input-->
-                            </div>
-                        </div>
-                        <!--end::Scroll-->
-                    </div>
-                    <!--end::Modal body-->
-                    <!--begin::Modal footer-->
-                    <div class="modal-footer flex-center">
-                        <!--begin::Button-->
-                        <button type="reset" id="modal_add_country_cancel" class="btn btn-light me-3">Discard</button>
-                        <!--end::Button-->
-                        <!--begin::Button-->
-                        <button type="submit" class="btn btn-primary submit">
-                            Submit
-                        </button>
-                        <!--end::Button-->
-                    </div>
-                    <!--end::Modal footer-->
-                </form>
-                <!--end::Form-->
-            </div>
         </div>
     </div>
 </div>
@@ -306,37 +228,7 @@
         url = "/change_country_status/{id}"
         changeRegionStatus(id, url);
     });
-    // $('.statusApproved').on('click', function() {
-    //     var id = $(this).find('.id').val();
-    //     url = "/change_country_status_approved/{id}"
-    //     changeRegionStatus(id, url);
-    // });
-    $(document).ready(function() {
-
-        $('#countryForm').submit(function(e) {
-            e.preventDefault();
-            var formData = $(this).serialize();
-            $.ajax({
-                type: 'POST',
-                url: '/add-country',
-                data: formData,
-                success: function(response) {
-
-                    Swal.fire({
-                        text: response.message,
-                        icon: "success",
-                        timer: 1500,
-                        showConfirmButton: false,
-                    });
-                    $('#modal_add_country').modal('hide');
-                    location.reload();
-                },
-                error: function(xhr, status, error) {
-                    console.error('Request failed:', error);
-                },
-            });
-        });
-    });
+    
 </script>
 
 @endsection
