@@ -205,6 +205,10 @@ hr {
     border-top: var(--bs-border-width) solid;
     opacity: 0.25;
 }
+.erpCheckbox{
+    background-color: #2d2d5e !important;
+    border-color: #2d2d5e !important;
+}
 .h1,
 .h2,
 .h3,

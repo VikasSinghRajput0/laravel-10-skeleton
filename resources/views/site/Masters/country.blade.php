@@ -89,11 +89,11 @@
                 </thead>
 
                 <tbody class="fw-semibold text-gray-600">
-
-                    @foreach ($country as $key => $countries)
+                    @php($sr = 1)
+                    @foreach ($country as $countries)
                     <tr class="text-uppercase">
                         <td>
-                            {{ $key+1 }}
+                            {{ $sr }}
                         </td>
                         <td class="text-center"> {{ $countries->name }} </td>
                         <td class="text-center"> {{ $countries->code }} </td>
@@ -109,8 +109,8 @@
                             <input type="hidden" class="id" value="{{ $countries->id }}">
                             @if ($countries->active == 1)
                             <button class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm ">
-                                <div class="form-check form-switch form-check-custom form-check-success form-check-solid">
-                                    <input class="form-check-input " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1"/>
+                                <div class="form-check form-switch form-check-custom form-check-primary form-check-solid">
+                                    <input class="form-check-input erpCheckbox " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1" >
                                 </div>
                             </button>
                             @else
@@ -122,7 +122,7 @@
                             @endif
                         </td>
                     </tr>
-
+                    @php($sr++)
                     @endforeach
                 </tbody>
 
