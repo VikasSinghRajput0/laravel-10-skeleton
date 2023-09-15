@@ -19,7 +19,7 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold" id="#kt_aside_menu" data-kt-menu="true">
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
+                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item  show py-2">
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center pulse">
                         <span class="menu-icon me-0">
@@ -56,7 +56,7 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center">
                         <span class="menu-icon me-0">
@@ -116,7 +116,7 @@
                                 <span class="menu-icon">
                                     <i class="ki-outline ki-calendar-8 fs-2"></i>
                                 </span>
-                                <span class="menu-title">Region</span>
+                                <span class="menu-title">{{__('Region')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -129,7 +129,7 @@
                                 <span class="menu-icon">
                                     <i class="ki-outline ki-calendar-8 fs-2"></i>
                                 </span>
-                                <span class="menu-title">Country</span>
+                                <span class="menu-title">{{__('Country')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -142,7 +142,20 @@
                                 <span class="menu-icon">
                                     <i class="ki-outline ki-calendar-8 fs-2"></i>
                                 </span>
-                                <span class="menu-title">Site</span>
+                                <span class="menu-title">{{__('Site')}}</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="{{route('user')}}">
+                                <span class="menu-icon">
+                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                </span>
+                                <span class="menu-title">{{__('User')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
