@@ -72,6 +72,11 @@ Route::post('/add-country', [CountryController::class, 'addcountry']);
 
 Route::get('/site', [SiteController::class, 'getSite'])->name('site');
 Route::get('/get_country_data',[SiteController::class, 'getCountryData']);
+Route::post('/add-site',[SiteController::class, 'addSiteData']);
+Route::post('/change_site_status/{id}', [SiteController::class, 'changeStatus'])->name('change.site.status');
+Route::post('/edit_site_data', [SiteController::class, 'editSite'])->name('edit.site.data');
+Route::post('/edit-site', [SiteController::class, 'editSiteData']);
+
 
 /************************************************
  *  Site - Admin Route

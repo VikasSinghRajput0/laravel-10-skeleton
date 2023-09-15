@@ -102,7 +102,7 @@
                             @if ($countries->active == 1)
                             <span class="badge badge-light-success">Active</span>
                             @else
-                            <span class="badge badge-light-danger">De-Active </span>
+                            <span class="badge badge-light-danger">InActive </span>
                             @endif
                         </td>
                         <td class="text-center changeStatus">

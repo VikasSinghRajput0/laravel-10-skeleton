@@ -93,29 +93,55 @@
                             <th class="min-w-125px text-center"> Site Code</th>
                             <th class="min-w-125px text-center">Region</th>
                             <th class="min-w-125px text-center">Country</th>
+                            <th class="min-w-125px text-center">Status</th>
                             <th class="text-center min-w-70px">Actions</th>
                         </tr>
                     </thead>
 
                     <tbody class="fw-semibold text-gray-600">
-                        {{--  @php($sr = 1)
-                        @foreach ($country as $countries) --}}
+                       @foreach ($site as $key => $sites)
                         <tr class="text-uppercase">
                             <td>
-                                {{-- {{ $sr }} --}} 1
+                                 {{$key+1}}
                             </td>
-                            <td class="text-center">test </td>
-                            <td class="text-center">test </td>
-                            <td class="text-center">test </td>
+                            <td class="text-center">{{$sites->name}} </td>
+                            <td class="text-center">{{$sites->code}} </td>
+                            <td class="text-center">{{$sites->region}} </td>
+                            <td class="text-center"> {{$sites->country}}</td>
                             <td class="text-center">
-                                test
-                            </td>
-                            <td class="text-center changeStatus">
-                                test
+                                    @if ($sites->active == 1)
+                                        <span class="badge badge-light-success">Active</span>
+                                    @else
+                                        <span class="badge badge-light-danger">InActive </span>
+                                    @endif
+                                </td>
+                            <td class="text-center ">
+                                
+                                @if ($sites->active == 1)
+                                <a  class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 editSite">
+									<i class="ki-outline ki-pencil fs-2"></i><input type="hidden" class="id" value="{{ $sites->id }}">
+								</a>
+                                <button class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm changeStatus">
+                                    <input type="hidden" class="id" value="{{ $sites->id }}">
+                                    <div class="form-check form-switch form-check-custom form-check-success form-check-solid">
+                                        <input class="form-check-input " type="checkbox" value="" checked id="kt_flexSwitchCustomDefault_1_1"/>
+                                    </div>
+                                </button>
+                                
+                                @else
+                                <a  class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 editSite">
+									<i class="ki-outline ki-pencil fs-2"></i><input type="hidden" class="id" value="{{ $sites->id }}">
+								</a>
+                                <button class="btn btn-icon btn-bg-light btn-active-color-success btn-sm  changeStatus ">
+                                    <input type="hidden" class="id" value="{{ $sites->id }}">
+                                    <div class="form-check form-switch form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexSwitchDefault"/>
+                                    </div>
+                                </button>
+                                @endif
                             </td>
                         </tr>
-                        {{-- @php($sr++)
-                        @endforeach --}}
+                        @endforeach
                     </tbody>
 
 
@@ -124,124 +150,232 @@
         </div>
     </div>
 
-{{-- ADD SITE MODAL --}}
-<div class="modal fade" id="modal_add_site" tabindex="-1" aria-hidden="true">
-    <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px">
-        <!--begin::Modal content-->
-        <div class="modal-content">
-            <!--begin::Form-->
-            <form class="form" id="countryForm" data-kt-redirect="">
-                @csrf
-                <!--begin::Modal header-->
-                <div class="modal-header" id="modal_add_site_header">
-                    <!--begin::Modal title-->
-                    <h2 class="fw-bold">Add a Site</h2>
-                    <!--end::Modal title-->
-                    <!--begin::Close-->
-                    <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="ki-outline ki-cross fs-1"></i>
+    {{-- ADD SITE MODAL --}}
+    <div class="modal fade" id="modal_add_site" tabindex="-1" aria-hidden="true">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content">
+                <!--begin::Form-->
+                <form class="form" id="siteForm" data-kt-redirect="">
+                    @csrf
+                    <!--begin::Modal header-->
+                    <div class="modal-header" id="modal_add_site_header">
+                        <!--begin::Modal title-->
+                        <h2 class="fw-bold">Add a Site</h2>
+                        <!--end::Modal title-->
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-outline ki-cross fs-1"></i>
+                        </div>
+                        <!--end::Close-->
                     </div>
-                    <!--end::Close-->
-                </div>
-                <!--end::Modal header-->
-                <!--begin::Modal body-->
-                <div class="modal-body py-10 px-lg-17">
-                    <!--begin::Scroll-->
-                    <div class="scroll-y me-n7 pe-7" id="modal_add_site_scroll" data-kt-scroll="true"
-                        data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto"
-                        data-kt-scroll-dependencies="#modal_add_site_header"
-                        data-kt-scroll-wrappers="#modal_add_site_scroll" data-kt-scroll-offset="300px">
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-15">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold mb-2">Region</label>
-                            <!--end::Label-->
-                            <!--begin::Select 2-->
-                            <select class="form-select form-select-solid regionData" data-control="select2" aria-label="Select example">
-                                <option>{{ __('Choose Region') }}</option>
-                                @foreach($region as $key => $regions)
-                                 <option  value="{{$regions->name}}" >{{$regions->name }}</option>
-                                @endforeach
-                            </select>
-                            <!--end::Select 2-->
+                    <!--end::Modal header-->
+                    <!--begin::Modal body-->
+                    <div class="modal-body py-10 px-lg-17">
+                        <!--begin::Scroll-->
+                        <div class="scroll-y me-n7 pe-7" id="modal_add_site_scroll" data-kt-scroll="true"
+                            data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto"
+                            data-kt-scroll-dependencies="#modal_add_site_header"
+                            data-kt-scroll-wrappers="#modal_add_site_scroll" data-kt-scroll-offset="300px">
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Region</label>
+                                <!--end::Label-->
+                                <!--begin::Select 2-->
+                                <select class="form-select form-select-solid regionData" id="data-change" data-control="select2" name = "region" aria-label="Select example">
+                                    <option>{{ __('Choose Region') }}</option>
+                                    @foreach ($region as $key => $regions)
+                                        <option value="{{ $regions->name }}">{{ $regions->name }}</option>
+                                    @endforeach
+                                </select>
+                                <!--end::Select 2-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Country</label>
+                                <!--end::Label-->
+                                <!--begin::Select 2-->
+                                <select class="form-select form-select-solid countryData" name = "country" data-control="select2" aria-label="Select example">
+                                    <option> Choose Country </option>
+                                    
+                                </select>
+                                <!--end::Select 2-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-7">
+                                <!--begin::Label-->
+                                <label class="required fs-6 fw-semibold mb-2">Site Name</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input type="text" class="form-control form-control-solid" placeholder="Site Name"
+                                    name="name" required />
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Site Code</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input type="text" class="form-control form-control-solid" placeholder="Site Code"
+                                    name="code" required />
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Input group-->
+
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Site Status</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <select class="form-select" name="status" data-control="select2">
+                                    <option value="1">Active</option>
+                                    <option value="0">De-Active</option>
+                                </select>
+                                <!--end::Input-->
+                            </div>
                         </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-15">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold mb-2">Country</label>
-                            <!--end::Label-->
-                            <!--begin::Select 2-->
-                            <select class="form-select form-select-solid countryData" data-control="select2" aria-label="Select example">
-                                <option>{{ __('Choose Country') }}</option>
-                              
-                            </select>
-                            <!--end::Select 2-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-7">
-                            <!--begin::Label-->
-                            <label class="required fs-6 fw-semibold mb-2">Site Name</label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <input type="text" class="form-control form-control-solid" placeholder="Site Name"
-                                name="site_name" required />
-                            <!--end::Input-->
-                        </div>
-                        <!--end::Input group-->
-                        <!--begin::Input group-->
-                        <div class="fv-row mb-15">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold mb-2">Site Code</label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <input type="text" class="form-control form-control-solid" placeholder="Site Code"
-                                name="site_code" required />
-                            <!--end::Input-->
-                        </div>
-                        <!--end::Input group-->
-                        
-                        <div class="fv-row mb-15">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold mb-2">Site Status</label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <select class="form-select" name="status" data-control="select2">
-                                <option value="1">Active</option>
-                                <option value="0">De-Active</option>
-                            </select>
-                            <!--end::Input-->
-                        </div>
+                        <!--end::Scroll-->
                     </div>
-                    <!--end::Scroll-->
-                </div>
-                <!--end::Modal body-->
-                <!--begin::Modal footer-->
-                <div class="modal-footer flex-center">
-                    <!--begin::Button-->
-                    <button type="reset" id="modal_add_site_cancel" class="btn btn-light me-3">Discard</button>
-                    <!--end::Button-->
-                    <!--begin::Button-->
-                    <button type="submit" class="btn btn-primary submit">
-                        Submit
-                    </button>
-                    <!--end::Button-->
-                </div>
-                <!--end::Modal footer-->
-            </form>
-            <!--end::Form-->
+                    <!--end::Modal body-->
+                    <!--begin::Modal footer-->
+                    <div class="modal-footer flex-center">
+                        <!--begin::Button-->
+                        <button type="reset" id="modal_add_site_cancel" class="btn btn-light me-3">Discard</button>
+                        <!--end::Button-->
+                        <!--begin::Button-->
+                        <button type="submit" class="btn btn-primary submit">
+                            Submit
+                        </button>
+                        <!--end::Button-->
+                    </div>
+                    <!--end::Modal footer-->
+                </form>
+                <!--end::Form-->
+            </div>
         </div>
     </div>
-</div>
+
+    {{-- UPDATE SITE MODAL --}}
+    <div class="modal fade" id="modal_edit_site" tabindex="-1" aria-hidden="true">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content">
+                <!--begin::Form-->
+                <form class="form" id="editSiteForm" data-kt-redirect="">
+                    @csrf
+                    <!--begin::Modal header-->
+                    <div class="modal-header" id="modal_edit_site_header">
+                        <!--begin::Modal title-->
+                        <h2 class="fw-bold">Update a Site</h2>
+                        <!--end::Modal title-->
+                        <!--begin::Close-->
+                        <div class="btn btn-icon btn-sm btn-active-icon-primary" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-outline ki-cross fs-1"></i>
+                        </div>
+                        <!--end::Close-->
+                    </div>
+                    <!--end::Modal header-->
+                    <!--begin::Modal body-->
+                    <div class="modal-body py-10 px-lg-17">
+                        <!--begin::Scroll-->
+                        <div class="scroll-y me-n7 pe-7" id="modal_edit_site_scroll" data-kt-scroll="true"
+                            data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto"
+                            data-kt-scroll-dependencies="#modal_edit_site_header"
+                            data-kt-scroll-wrappers="#modal_edit_site_scroll" data-kt-scroll-offset="300px">
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Region</label>
+                                <!--end::Label-->
+                                <!--begin::input-->
+                               <input type="text" class="form-control form-control-solid" placeholder="" name="region" readonly />
+                                   
+                                <!--end::input-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Country</label>
+                                <!--end::Label-->
+                                <!--begin::Select 2-->
+                                <input type="text" class="form-control form-control-solid" placeholder=""
+                                    name="country" readonly />
+                                <!--end::Select 2-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-7">
+                                <!--begin::Label-->
+                                <label class="required fs-6 fw-semibold mb-2">Site Name</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input type="text" class="form-control form-control-solid" placeholder="Site Name"
+                                    name="name" required />
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Site Code</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <input type="text" class="form-control form-control-solid" placeholder="Site Code"
+                                    name="code" required />
+                                <!--end::Input-->
+                            </div>
+                            <!--end::Input group-->
+
+                            <div class="fv-row mb-15">
+                                <!--begin::Label-->
+                                <label class="fs-6 fw-semibold mb-2">Site Status</label>
+                                <!--end::Label-->
+                                <!--begin::Input-->
+                                <select class="form-select" name="status" data-control="select2">
+                                    <option value="1">Active</option>
+                                    <option value="0">De-Active</option>
+                                </select>
+                                <!--end::Input-->
+                            </div>
+                        </div>
+                        <!--end::Scroll-->
+                    </div>
+                    <!--end::Modal body-->
+                    <!--begin::Modal footer-->
+                    <div class="modal-footer flex-center">
+                        <!--begin::Button-->
+                        <button type="reset" id="modal_edit_site_cancel" class="btn btn-light me-3">Discard</button>
+                        <!--end::Button-->
+                        <!--begin::Button-->
+                        <button type="submit" class="btn btn-primary">
+                            Update
+                        </button>
+                        <!--end::Button-->
+                    </div>
+                    <!--end::Modal footer-->
+                </form>
+                <!--end::Form-->
+            </div>
+        </div>
+    </div>
 
 @endsection
 @section('scripts')
     <script>
         $(document).ready(function() {
             var table = $('#site_data_table').DataTable();
-
+             $('.regionData').select2({
+                minimumResultsForSearch: Infinity,
+            });
             // Add export buttons to DataTable
             const documentTitle = 'Sites Data';
             var buttons = new $.fn.dataTable.Buttons(table, {
@@ -285,10 +419,33 @@
             $('[data-kt-filter="search"]').on('keyup', function() {
                 table.search(this.value).draw();
             });
+
+            $('#siteForm').submit(function(e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                $.ajax({
+                    type: 'POST',
+                    url: '/add-site',
+                    data: formData,
+                    success: function(response) {
+
+                        Swal.fire({
+                            text: response.message,
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                        });
+                        $('#modal_add_site').modal('hide');
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Request failed:', error);
+                    },
+                });
+            });
         });
-        $(document).on('change', function(){
-            let countryName =  $(`.regionData option:selected`).val();
-            console.log(countryName);
+        $('#data-change').on('change', function() {
+            let countryName = $(`.regionData option:selected`).val();
             $.ajax({
                 type: "GET",
                 url: "/get_country_data",
@@ -296,23 +453,125 @@
                     'countryName': countryName,
                 },
                 success: function(result) {
-                    if(result.success){
-                            console.log(result.country);
-                            var countryList = result.country;
-                            var select = $(`.countryData`);
-                            $.each(countryList, function(index, country) {
-                                select.append($("<option>").text(country).val(country));
-                            });
-
-                    }else{
-                          select.append($("<option>").text('country Not Found'));
+                    $(`.countryData`).empty();
+                    if (result.success) {
+                        var countryList = result.country;
+                        $(`.countryData`).append($("<option>").text('Choose Country'));
+                        $.each(countryList, function(index, country) {
+                            $(`.countryData`).append(`<option value="${country}"> ${country} </option> `);
+                        });
+                        $('.countryData').select2({
+                             minimumResultsForSearch: Infinity,
+                        });
+                    } else {
+                        $(`.countryData`).append($("<option>").text('country Not Found'));
                     }
-                    
                 }
             });
         });
-       
 
+        function changeSiteStatus(id, url) {
+            Swal.fire({
+                text: "Do you want to change the status of the Site?",
+                icon: "success",
+                buttonsStyling: false,
+                showCancelButton: true,
+                confirmButtonText: "Yes",
+                cancelButtonText: "No",
+                customClass: {
+                    confirmButton: "btn btn-primary",
+                    cancelButton: "btn btn-danger",
+                },
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        method: "POST",
+                        url: url,
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            id: id,
+                        },
+                        success: function(response) {
+                            Swal.fire({
+                                text: response.message,
+                                icon: "success",
+                                timer: 1500,
+                                showConfirmButton: false,
+                            });
+                            location.reload();
+                        },
+                        error: function(xhr, status, error) {
+                             Swal.fire({
+                                text: error,
+                                icon: "error",
+                                timer: 1500,
+                                showConfirmButton: false,
+                            });
+                        },
+                    });
+                } else {
+
+                }
+            });
+        }
+
+        $('.changeStatus').on('click', function() {
+            var id = $(this).find('.id').val();
+            url = "/change_site_status/{id}"
+            changeSiteStatus(id, url);
+        });
+
+        $(`.editSite`).on('click', function(){
+            var id = $(this).find('.id').val();
+            $.ajax({
+                type: "POST",
+                url: "/edit_site_data",
+                data: {
+                    'id': id,
+                     _token: "{{ csrf_token() }}",
+                },
+                success: function(result) {
+                    if(result.success){
+                        $('#modal_edit_site').modal('show');
+                        $('#modal_edit_site').find('input[name="name"]').val(result.site.name);
+                        $('#modal_edit_site').find('input[name="code"]').val(result.site.code);
+                        $('#modal_edit_site').find('input[name="region"]').val(result.site.region);
+                        $('#modal_edit_site').find('input[name="country"]').val(result.site.country);
+                        $('#modal_edit_site').find('select[name="status"]').val(result.site.active).trigger('change');
+
+                    }
+                }
+            });
+            $('#editSiteForm').submit(function(e) {
+                e.preventDefault();
+                var formData = $(this).serialize();
+                var name = $('#modal_edit_site').find('input[name="name"]').val();
+                var code = $('#modal_edit_site').find('input[name="code"]').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/edit-site',
+                    data: {
+                            'name' : name,  
+                            'id' : id, 
+                            'code' : code,
+                            _token: "{{ csrf_token() }}",
+                        },
+                    success: function(response) {
+                        Swal.fire({
+                            text: response.message,
+                            icon: "success",
+                            timer: 1500,
+                            showConfirmButton: false,
+                        });
+                        $('#modal_edit_site').modal('hide');
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Request failed:', error);
+                    },
+                });
+            });
+        });
     </script>
 
 @endsection
