@@ -26,7 +26,6 @@
                             <i class="ki-outline ki-home-2 fs-2x"></i>
                         </span>
                         <span class="menu-title">Home</span>
-                        <span class="pulse-ring"></span>
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
