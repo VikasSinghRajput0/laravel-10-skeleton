@@ -13,7 +13,7 @@
                 <div data-kt-swapper="true" data-kt-swapper-mode="prepend"
                     data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
                     class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                    <h1 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Branch List</h1>
+                    <h1 class="d-flex align-items-center text-dark fw-bold my-1 fs-3">Sites List</h1>
                     <span class="h-20px border-gray-200 border-start mx-3"></span>
                 </div>
             </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\SiteAdminController;
 use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -74,6 +75,10 @@ Route::post('/change_site_status/{id}', [SiteController::class, 'changeStatus'])
 Route::post('/edit_site_data', [SiteController::class, 'editSite'])->name('edit.site.data');
 Route::post('/edit-site', [SiteController::class, 'editSiteData']);
 
+
+/*************************************************** USER ROUTES ***************************************************/
+
+Route::get('/user',[UserController::class,'getUsers'])->name('user');
 
 /************************************************
  *  Site - Admin Route
