@@ -139,11 +139,11 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{route('site')}}">
+                            <a class="menu-link" href="{{route('branch')}}">
                                 <span class="menu-icon">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </span>
-                                <span class="menu-title">{{__('Site')}}</span>
+                                <span class="menu-title">{{__('Branch')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
