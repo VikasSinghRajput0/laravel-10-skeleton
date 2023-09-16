@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\GroupAdminController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\CountryController;
@@ -68,7 +69,7 @@ Route::post('/change_region_status/{id}', [RegionController::class, 'changeStatu
 Route::get('/country', [CountryController::class, 'getCountries'])->name('country');
 Route::post('/change_country_status/{id}', [CountryController::class, 'changeStatus'])->name('change.country.status');
 
-/*************************************************** COUNTRY ROUTES ***************************************************/
+/*************************************************** Sites ROUTES ***************************************************/
 
 Route::get('/site', [SiteController::class, 'getSite'])->name('site');
 Route::get('/get_country_data', [SiteController::class, 'getCountryData']);
@@ -76,6 +77,15 @@ Route::post('/add-site', [SiteController::class, 'addSiteData']);
 Route::post('/change_site_status/{id}', [SiteController::class, 'changeStatus'])->name('change.site.status');
 Route::post('/edit_site_data', [SiteController::class, 'editSite'])->name('edit.site.data');
 Route::post('/edit-site', [SiteController::class, 'editSiteData']);
+
+/*************************************************** Sites ROUTES ***************************************************/
+
+Route::get('/branch', [BranchController::class, 'getBranch'])->name('branch');
+Route::get('/get_country_data', [BranchController::class, 'getCountryData']);
+Route::post('/add-branch', [BranchController::class, 'addBranchData']);
+Route::post('/change_branch_status/{id}', [BranchController::class, 'changeStatus'])->name('change.branch.status');
+Route::post('/edit_branch_data', [BranchController::class, 'editBranch'])->name('edit.branch.data');
+Route::post('/edit-branch', [BranchController::class, 'editBranchData']);
 
 
 /*************************************************** USER ROUTES ***************************************************/
