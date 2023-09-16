@@ -23,7 +23,8 @@ class BranchController extends Controller
      */
     public function getCountryData(Request $request)
     {
-        $regionName = $request->countryName;
+        $region = $request->countryName;
+        $regionName = ucfirst(strtolower($region));
         $country = Country::where('active', 1)->where('region', $regionName)->pluck('name');
         return response()->json(['success' => true, 'message' => 'Data Found', 'country' => $country]);
     }
