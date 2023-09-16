@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/v1/login', [ApiController::class, 'login']);
-Route::post('/logout', [ApiController::class, 'logout']);
+Route::post('/v1/logout', [ApiController::class, 'logout']);
 /*
     |--------------------------------------------------------------------------
     |                               API ACCESS ROUTES 
