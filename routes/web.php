@@ -9,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SiteAdminController;
-use App\Http\Controllers\SiteController;
+
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -69,14 +69,6 @@ Route::post('/change_region_status/{id}', [RegionController::class, 'changeStatu
 Route::get('/country', [CountryController::class, 'getCountries'])->name('country');
 Route::post('/change_country_status/{id}', [CountryController::class, 'changeStatus'])->name('change.country.status');
 
-/*************************************************** Sites ROUTES ***************************************************/
-
-Route::get('/site', [SiteController::class, 'getSite'])->name('site');
-Route::get('/get_country_data', [SiteController::class, 'getCountryData']);
-Route::post('/add-site', [SiteController::class, 'addSiteData']);
-Route::post('/change_site_status/{id}', [SiteController::class, 'changeStatus'])->name('change.site.status');
-Route::post('/edit_site_data', [SiteController::class, 'editSite'])->name('edit.site.data');
-Route::post('/edit-site', [SiteController::class, 'editSiteData']);
 
 /*************************************************** Sites ROUTES ***************************************************/
 
@@ -90,7 +82,7 @@ Route::post('/edit-branch', [BranchController::class, 'editBranchData']);
 
 /*************************************************** USER ROUTES ***************************************************/
 
-Route::get('/user',[UserController::class,'getUsers'])->name('user');
+Route::get('/user', [UserController::class, 'getUsers'])->name('user');
 
 /************************************************
  *  Site - Admin Route
