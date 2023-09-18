@@ -13,7 +13,7 @@ class RegionController extends Controller
     public function getRegion()
     {
         $region = Region::get();
-        return view('site.masters.region', compact('region'));
+        return view('site.master.region', compact('region'));
     }
 
     /**
