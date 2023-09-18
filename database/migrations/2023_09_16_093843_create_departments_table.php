@@ -15,6 +15,7 @@ return new class extends Migration
 
             $table->id();
             $table->string('name')->nullable();
+            $table->string('created_by', 50)->nullable();
             $table->boolean('active')->comment('0:inactive,1:active')->default(1);
             $table->timestamps();
         });
