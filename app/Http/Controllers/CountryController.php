@@ -13,7 +13,7 @@ class CountryController extends Controller
     public function getCountries()
     {
         $country = Country::get();
-        return view('site.Masters.country', compact('country'));
+        return view('site.masters.country', compact('country'));
     }
     /**
      * CHANGE THE STATUS OF COUNTRY ACTIVE OR INACTIVE
