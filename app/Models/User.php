@@ -24,7 +24,7 @@ class User extends Authenticatable
         'role_id',
         'site_id',
         'country_code',
-        'contact_number',
+        'phone_number',
         'device_token',
         'api_token',
         'device_type',
@@ -33,6 +33,7 @@ class User extends Authenticatable
         'api_token_expires_at',
         'profile_image',
         'company_name',
+        'otp_verify',
 
     ];
 

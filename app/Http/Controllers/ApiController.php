@@ -8,18 +8,19 @@ use Exception;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
     /**
-     * Login user and create token
+     * Login user By Email Password and create token
      * @param  [string] email
      * @param  [string] password
      * @return [string] access_token
      */
-    public function login(Request $request)
+    public function loginByEmail(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'active' => 1])) {
             $userData = User::where('email', $request->email)->first();
@@ -75,6 +76,128 @@ class ApiController extends Controller
                 return Helper::responseOnSuccess($responseData);
             }
         } catch (\Exception $e) {
+            return Helper::responseOnFailure();
+        }
+    }
+
+    /**
+     * function to login By Mobile Number -> Generate otp
+     * @param Request $request
+     * @return void
+     */
+    public function loginByOtp(Request $request)
+    {
+        try {
+            $verify =  Validator::make($request->all(), [
+                'phone_number' => ['required']
+            ]);
+            if ($verify->fails()) {
+                return response()->json([
+                    'status_code' => 401,
+                    'method' => 'POST',
+                    'message' => $verify->getMessageBag()->first(),
+                ]);
+            } else {
+                $result['type'] = "success";
+                if ($result['type'] === "success") {
+                    $exist = User::where('phone_number', $request->phone_number)->first();
+                    if ($exist) {
+                        $exist->device_token = $request->device_token;
+                        $exist->api_token = Str::random(60);
+                        $exist->user_otp = 1234;
+                        $exist->update();
+                        $responseData = [
+                            'success' => true,
+                            'message' => 'Otp Send SuccessFully',
+                            'data' => ["user_id" => $exist->id, 'phone_number' => $request->phone_number, 'api_token' => $exist->api_token],
+                            'method' => 'POST'
+                        ];
+                        return Helper::responseOnSuccess($responseData);
+                    } else {
+                        $user = new User([
+                            'phone_number' => $request->phone_number,
+                            'name' => 'Unknown',
+                            'email' => 'unknown' . rand(1000, 10000) . '@mail.com',
+                            'password' => Hash::make('12345678'),
+                            'api_token' => Str::random(60),
+                            'device_token' => $request->device_token ?? "",
+                            'user_otp' => 1234,
+                        ]);
+
+                        $user->save();
+                        $responseData = [
+                            'success' => true,
+                            'message' => 'Otp Send SuccessFully',
+                            'data' => ["user_id" => $user->id, 'phone_number' => $request->phone_number, 'api_token' =>  $user->api_token],
+                            'method' => 'POST'
+                        ];
+                        return Helper::responseOnSuccess($responseData);
+                    }
+                } else {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Something Went Wrong'
+                    ]);
+                }
+            }
+        } catch (Exception $e) {
+            Log::error($e);
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    /**
+     * fuhnction to verfiy otp
+     * @param Request $request
+     * @return void
+     */
+    public function verifyOtp(Request $request)
+    {
+        try {
+
+            $verify =  Validator::make($request->all(), [
+                'phone_number' => 'required',
+                'otp' => 'required'
+            ]);
+            if ($verify->fails()) {
+                return response()->json([
+                    'status_code' => 401,
+                    'method' => 'POST',
+                    'message' => $verify->getMessageBag()->first(),
+                ]);
+            } else {
+                if ($request['otp'] == "1234") {
+                    $exist = User::where(['phone_number' => $request->phone_number])->first();
+                    if ($exist) {
+                        $exist->otp_verify = 1;
+                        $exist->api_token_expires_at = now()->addHours(24); // Adjust the expiration time as needed
+                        $exist->update();
+                        $responseData = [
+                            'success' => true,
+                            'message' => 'OTP Verified.',
+                            'data' => ["user_id" => $exist->id, 'phone_number' => $request->phone_number, 'api_token' => $exist->api_token],
+                            'method' => 'POST'
+                        ];
+                        return Helper::responseOnSuccess($responseData);
+                    } else {
+                        return response()->json(['status_code' => 401, 'message' => 'Please check the number agian.']);
+                    }
+                } else {
+                    $responseData = [
+                        'success' => false,
+                        'message' => 'OTP Verification failed',
+                        'data' => [],
+                        'method' => 'POST'
+                    ];
+                    return Helper::responseOnFailure($responseData);
+                }
+            }
+        } catch (Exception $e) {
+            dd($e);
+            Log::error($e);
             return Helper::responseOnFailure();
         }
     }
