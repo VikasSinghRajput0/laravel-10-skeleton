@@ -53,7 +53,7 @@ class Helper
             'success' => false,
             'status_code' => 400,
             'method' => 'POST',
-            'message' => 'Something went wrong. please try agian.',
+            'message' =>  'Something went wrong. please try agian.',
             'data' => null
         ]);
     }

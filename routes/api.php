@@ -19,8 +19,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/v1/login', [ApiController::class, 'login']);
+Route::post('/v1/login/email', [ApiController::class, 'loginByEmail'])->name('login.mail');
+Route::post('/v1/login/otp', [ApiController::class, 'loginByOtp'])->name('login.otp');
+Route::post('/v1/verify_otp', [ApiController::class, 'verifyOtp'])->name('otp.verify');
 Route::post('/v1/logout', [ApiController::class, 'logout']);
+
 /*
     |--------------------------------------------------------------------------
     |                               API ACCESS ROUTES 
