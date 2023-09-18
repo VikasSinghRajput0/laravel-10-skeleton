@@ -155,7 +155,7 @@
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{route('department')}}">
                                 <span class="menu-icon">
-                                    <i class="fa-solid fa-location-dot"></i>
+                                    <i class="fa-solid fa-building-user"></i>
                                 </span>
                                 <span class="menu-title">{{__('Department')}}</span>
                             </a>
