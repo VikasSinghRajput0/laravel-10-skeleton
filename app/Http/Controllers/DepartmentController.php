@@ -2,64 +2,75 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Department;
+use App\Models\Region;
 use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Department Blade Data
      */
-    public function index()
+    public function getDepartment()
     {
-        //
+        $region = Region::where('active', 1)->get();
+        $Department = Department::get();
+        return view('site.masters.department', compact('region', 'Department'));
     }
-
     /**
-     * Show the form for creating a new resource.
+     * ADDING NEW Department 
      */
-    public function create()
+    public function addDepartmentData(Request $request)
     {
-        //
+        $addDepartment = new Department();
+        $addDepartment->name = $request->name;
+        $addDepartment->created_by = $request->created_by;
+        // $addDepartment->active = $request->status;
+        $addDepartment->save();
+        return response()->json(['message' => 'DEPARTMENT ADDED SUCCESSFULLY']);
+
     }
-
     /**
-     * Store a newly created resource in storage.
+     * CHANGE THE STATUS OF Department 
      */
-    public function store(Request $request)
+    public function changeStatus(Request $request)
     {
-        //
+        // dd($request->all());
+        $id = $request->id;
+        $Department = Department::find($id);
+        if (!$Department) {
+            return response()->json(['message' => 'Department not found'], 404);
+        } else {
+            $Department->active = !$Department->active;
+            $Department->save();
+            return response()->json(['message' => 'Status changed successfully']);
+        }
     }
-
     /**
-     * Display the specified resource.
+     * EDIT THE Department NAME AND CODE
      */
-    public function show(Department $department)
+    public function editDepartment(Request $request)
     {
-        //
+        $id = $request->id;
+        $Department = Department::find($id);
+        if (!$Department) {
+            return response()->json(['message' => 'Department not found'], 404);
+        } else {
+            return response()->json(['success' => true, 'Department' => $Department]);
+        }
     }
-
     /**
-     * Show the form for editing the specified resource.
+     * UPDATE THE CURRENT Department
      */
-    public function edit(Department $department)
+    public function editDepartmentData(Request $request)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Department $department)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Department $department)
-    {
-        //
+        $id = $request->id;
+        $Department = Department::find($id);
+        $Department->update([
+            'name' => $request->name,
+            'created_by' => $request->created_by,
+        ]);
+        return response()->json(['message' => 'REGION UPDATED SUCCESSFULLY']);
     }
 }

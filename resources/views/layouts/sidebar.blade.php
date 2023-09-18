@@ -148,6 +148,19 @@
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+
+                         <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="{{route('department')}}">
+                                <span class="menu-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </span>
+                                <span class="menu-title">{{__('Department')}}</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
                 </div>

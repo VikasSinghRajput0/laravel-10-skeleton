@@ -16,7 +16,7 @@ class BranchController extends Controller
     {
         $region = Region::where('active', 1)->get();
         $branch = Branch::get();
-        return view('site.Masters.branch', compact('region', 'branch'));
+        return view('site.masters.branch', compact('region', 'branch'));
     }
     /**
      * COUNTRY DATA ON THE BASIS OF REGIONS

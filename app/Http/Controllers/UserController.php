@@ -9,6 +9,6 @@ class UserController extends Controller
 {   
     public function getUsers(){
         $user = User::get();
-        return view('site.Masters.user', compact('user'));
+        return view('site.masters.user', compact('user'));
     }
 }
