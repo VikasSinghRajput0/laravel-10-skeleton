@@ -16,7 +16,7 @@ class DepartmentController extends Controller
     {
         $region = Region::where('active', 1)->get();
         $Department = Department::get();
-        return view('site.masters.department', compact('region', 'Department'));
+        return view('site.master.department', compact('region', 'Department'));
     }
     /**
      * ADDING NEW Department 
@@ -29,7 +29,6 @@ class DepartmentController extends Controller
         // $addDepartment->active = $request->status;
         $addDepartment->save();
         return response()->json(['message' => 'DEPARTMENT ADDED SUCCESSFULLY']);
-
     }
     /**
      * CHANGE THE STATUS OF Department 

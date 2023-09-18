@@ -13,7 +13,7 @@ class CountryController extends Controller
     public function getCountries()
     {
         $country = Country::get();
-        return view('site.masters.country', compact('country'));
+        return view('site.master.country', compact('country'));
     }
     /**
      * CHANGE THE STATUS OF COUNTRY ACTIVE OR INACTIVE
@@ -25,11 +25,10 @@ class CountryController extends Controller
         $country = country::find($id);
         if (!$country) {
             return response()->json(['message' => 'country not found'], 404);
-        }else{
+        } else {
             $country->active = !$country->active;
             $country->save();
             return response()->json(['message' => 'Status changed successfully']);
         }
     }
-    
 }

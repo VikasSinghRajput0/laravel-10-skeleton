@@ -6,9 +6,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
-{   
-    public function getUsers(){
+{
+    public function getUsers()
+    {
         $user = User::get();
-        return view('site.masters.user', compact('user'));
+        return view('site.master.user', compact('user'));
     }
 }
