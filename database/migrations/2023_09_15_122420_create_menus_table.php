@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->boolean('active')->comment('0:inactive,1:active')->default(1);
             $table->timestamps();
         });
     }

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('regions', function (Blueprint $table) {
             $table->id();
-            $table->string('active');
             $table->string('name');
             $table->string('code');
+            $table->boolean('active')->comment('0:inactive,1:active')->default(1);
             $table->timestamps();
         });
     }
