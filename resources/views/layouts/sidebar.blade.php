@@ -3,10 +3,11 @@
     <div class="aside-logo py-8" id="kt_aside_logo">
         <!--begin::Logo-->
         <a href="{{route('home')}}" class="d-flex align-items-center">
-            <!-- <img alt="Logo" src="assets/media/images/CarsonLogo.png" class="h-75px w-90px logo" /> -->
-            <h3 class="logo">
+            <img alt="Logo" src="assets/media/images/carson_logo.png" class="h-90px w-120px logo" />
+            <!-- <img alt="Logo" src="assets/media/images/Carson-logo.png" class="h-90px w-120px logo" /> -->
+            <!-- <h3 class="logo">
                 <center>ERP</center> CARSON
-            </h3>
+            </h3> -->
         </a>
         <!--end::Logo-->
     </div>
@@ -144,6 +145,19 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                 </span>
                                 <span class="menu-title">{{__('Branch')}}</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="{{route('department')}}">
+                                <span class="menu-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </span>
+                                <span class="menu-title">{{__('Department')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>

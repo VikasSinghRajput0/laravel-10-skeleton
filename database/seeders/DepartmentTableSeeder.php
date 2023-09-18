@@ -63,7 +63,16 @@ class DepartmentTableSeeder extends Seeder
                 'active' => 1,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ]
+            ],
+            [
+                'id' => '7',
+                'name' => 'General Freight',
+                'created_by' => 'MasterAdmin',
+                'active' => 1,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ],
+
         ];
 
         foreach ($departments as $dept) {

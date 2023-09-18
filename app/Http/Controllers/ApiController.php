@@ -117,13 +117,12 @@ class ApiController extends Controller
                         $user = new User([
                             'phone_number' => $request->phone_number,
                             'name' => 'Unknown',
-                            'email' => 'unknown' . rand(1000, 10000) . '@mail.com',
+                            'email' => 'unknown' . rand(1000, 10000) . '@gmail.com',
                             'password' => Hash::make('12345678'),
                             'api_token' => Str::random(60),
                             'device_token' => $request->device_token ?? "",
                             'user_otp' => 1234,
                         ]);
-
                         $user->save();
                         $responseData = [
                             'success' => true,

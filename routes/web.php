@@ -5,6 +5,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\GroupAdminController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MasterAdminController;
 use App\Http\Controllers\ProfileController;
@@ -70,7 +71,7 @@ Route::get('/country', [CountryController::class, 'getCountries'])->name('countr
 Route::post('/change_country_status/{id}', [CountryController::class, 'changeStatus'])->name('change.country.status');
 
 
-/*************************************************** Sites ROUTES ***************************************************/
+/*************************************************** BRANCHES ROUTES ***************************************************/
 
 Route::get('/branch', [BranchController::class, 'getBranch'])->name('branch');
 Route::get('/get_country_data', [BranchController::class, 'getCountryData']);
@@ -78,6 +79,14 @@ Route::post('/add-branch', [BranchController::class, 'addBranchData']);
 Route::post('/change_branch_status/{id}', [BranchController::class, 'changeStatus'])->name('change.branch.status');
 Route::post('/edit_branch_data', [BranchController::class, 'editBranch'])->name('edit.branch.data');
 Route::post('/edit-branch', [BranchController::class, 'editBranchData']);
+
+/*************************************************** DEPARTMENT ROUTES ***************************************************/
+
+Route::get('/department', [DepartmentController::class, 'getDepartment'])->name('department');
+Route::post('/add-department', [DepartmentController::class, 'addDepartmentData']);
+Route::post('/change_department_status/{id}', [DepartmentController::class, 'changeStatus'])->name('change.Department.status');
+Route::post('/edit_department_data', [DepartmentController::class, 'editDepartment'])->name('edit.Department.data');
+Route::post('/edit-department', [DepartmentController::class, 'editDepartmentData']);
 
 
 /*************************************************** USER ROUTES ***************************************************/
