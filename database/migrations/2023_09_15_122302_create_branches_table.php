@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('code')->nullable();
             $table->string('country')->nullable();
             $table->string('region')->nullable();
-            $table->string('active')->nullable();
+            $table->boolean('active')->comment('0:inactive,1:active')->default(1);
             $table->timestamps();
         });
     }
