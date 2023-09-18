@@ -16,11 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->unsignedBigInteger('role_id')->nullable();
+            $table->json('site_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('phone_number')->nullable();
             $table->string('api_token')->nullable();
             $table->integer('active')->default(1)->nullable();
+            $table->string('profile')->nullable();
             $table->string('device_token')->nullable();
             $table->integer('device_type')->nullable();
             $table->bigInteger('user_otp')->nullable();

@@ -19,7 +19,7 @@
             <!--begin::Menu-->
             <div class="menu menu-column menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500 fw-semibold" id="#kt_aside_menu" data-kt-menu="true">
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
+                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item  show py-2">
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center pulse">
                         <span class="menu-icon me-0">
@@ -46,7 +46,7 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Default</span>
+                                <span class="menu-title">{{__('DashBoard')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -56,7 +56,7 @@
                 </div>
                 <!--end:Menu item-->
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item py-2">
+                <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show py-2">
                     <!--begin:Menu link-->
                     <span class="menu-link menu-center">
                         <span class="menu-icon me-0">
@@ -81,10 +81,10 @@
                         <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                             <!--begin:Menu link-->
                             <span class="menu-link">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
+                                <span class="menu-icon">
+                                    <i class="ki-duotone ki-profile-user"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 </span>
-                                <span class="menu-title">{{__('Example')}}</span>
+                                <span class="menu-title">{{__('Role/User')}}</span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <!--end:Menu link-->
@@ -93,11 +93,11 @@
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="javascript:void(0)">
+                                    <a class="menu-link" href="{{route('user')}}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">{{__('AIR DTD')}}</span>
+                                        <span class="menu-title">{{__('Add User')}}</span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
@@ -114,9 +114,9 @@
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{route('region')}}">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                    <i class="fa-solid fa-globe"></i>
                                 </span>
-                                <span class="menu-title">Region</span>
+                                <span class="menu-title">{{__('Region')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -127,9 +127,10 @@
                             <!--begin:Menu link-->
                             <a class="menu-link" href="{{route('country')}}">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                    {{-- <i class="ki-outline ki-calendar-8 fs-2"></i> --}}
+                                    <i class="fa-solid fa-flag"></i>
                                 </span>
-                                <span class="menu-title">Country</span>
+                                <span class="menu-title">{{__('Country')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
@@ -138,16 +139,15 @@
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="{{route('site')}}">
+                            <a class="menu-link" href="{{route('branch')}}">
                                 <span class="menu-icon">
-                                    <i class="ki-outline ki-calendar-8 fs-2"></i>
+                                    <i class="fa-solid fa-location-dot"></i>
                                 </span>
-                                <span class="menu-title">Site</span>
+                                <span class="menu-title">{{__('Branch')}}</span>
                             </a>
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
-
                     </div>
                     <!--end:Menu sub-->
                 </div>
