@@ -21,10 +21,11 @@ In summary, Laravel serves as a robust foundation for CRM, finance, TMS, and HR 
     -   Intervention Image: Version 2.7 or higher for image manipulation.
 -   Laravel Framework: Version 10.22.0 or higher, which is the Laravel framework itself.
 -   Composer version 2.2.5
+-   PostgreSQL version: 16.0
 
 -   Prerequisites:
-
-PHP: Ensure that you have PHP 8.1 or a higher version installed on your system.
+    TuueEiityNdwo7dUwRNLMihojY2zC5R
+    PHP: Ensure that you have PHP 8.1 or a higher version installed on your system.
 
 Composer: You need Composer, a PHP dependency manager, installed on your system. You can download and install it from the official Composer website: https://getcomposer.org/download/
 
