@@ -91,13 +91,9 @@ That's it! You have successfully cloned your Git repository to your local machin
 Contributors names and contact info
 
 ex. Vikas Kumar
-ex. vikas@coderootz.com
+ex. vk440231@gmail.com
 
 ## Version History
 
 -   0.1
     -   Initial Release
-
-## License
-
-This project is licensed under the [CODEROOTZ] License - see the LICENSE.md file for details
